@@ -1,0 +1,35 @@
+﻿@model BazarPapelaria10.Models.Colaborador
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h2 style="margin-top:20px;"><i class="fas fa-pen-square"></i> Cadastrar</h2>
+
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="Nome">Nome:<h11 style="color:red;">*</h11></label>
+        <input asp-for="Nome" class="form-control" placeholder="Nome da colaborador.">
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email:<h11 style="color:red;">*</h11></label>
+        <input asp-for="Email" class="form-control" placeholder="Email do colaborador.">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Senha">Senha:<h11 style="color:red;">*</h11></label>
+        <input asp-for="Senha" class="form-control" placeholder="Senha do colaborador." type="password">
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConfirmacaoSenha">Confirme a senha:<h11 style="color:red;">*</h11></label>
+        <input asp-for="ConfirmacaoSenha" class="form-control" placeholder="Digite novamente a senha." type="password">
+        <span asp-validation-for="ConfirmacaoSenha" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary"><i class="far fa-plus-square"></i> Adicionar</button> <a asp-action="Index" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> Voltar</a>
+</form>

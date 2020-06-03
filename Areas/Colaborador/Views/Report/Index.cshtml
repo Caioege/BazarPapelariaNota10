@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<table class="table table-bordered" id="tabelaProduto">
+
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Obs</th>
+        </tr>
+    </thead>
+</table>
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#tabelaProduto").DataTable({
+                ajax: {
+                    "url": "/Colaborador/Report/GetProdutos",
+                    "dataSrc": ""
+                },
+                "columns": [
+                    { "data": "nomeprod" },
+                    { "data": "descprod" },
+                    { "data": "quantidade" },
+                    { "data": "valorprod" },
+                    { "data": "ativo" },
+                    { "data": "obsprod" }
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'pdf'
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+                }
+            });
+        });
+    </script>
+
+}

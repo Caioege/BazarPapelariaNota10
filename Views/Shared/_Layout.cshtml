@@ -1,0 +1,290 @@
+﻿
+@{
+    var pesquisa = Context.Request.Query["pesquisa"];
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv=”content-type” content="text/html;" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="papelaria, nota 10, bazar, materiais, escolares, livros, cadernos" />
+    <meta name="author" content="Caio Henrick de Oliveira, Willian Santos Silva,Yure Silva Cunha">
+
+    <!-- ARQUIVOS DE ESTILO -->
+    <!-- Bootstrap-ecommerce CSS e JS -->
+    <script src="~/NovoLayout/_js/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script src="~/NovoLayout/_js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    <link href="~/NovoLayout/_css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/NovoLayout/_css/ui.css" rel="stylesheet" type="text/css">
+
+    <link href="~/NovoLayout/_css/all.min.css" type="text/css" rel="stylesheet">
+    <link href="~/NovoLayout/_css/responsive.css" rel="stylesheet">
+
+
+    <!-- Personalizado -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="~/NovoLayout/_css/style.css" rel="stylesheet">
+    <script src="~/NovoLayout/_js/script.js" type="text/javascript"></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv=”content-type” content="text/html;" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="papelaria, nota 10, bazar, materiais, escolares, livros, cadernos" />
+    <meta name="author" content="Caio Henrick de Oliveira, Willian Santos Silva,Yure Silva Cunha">
+    <meta name="description" content="Site destinado ao e-commerce de produtos da loja em questão e trabalho de conclusão do curso de ADS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/icone.ico">
+
+    <style>
+
+        .section-header .a {
+            color: white;
+        }
+
+        .footer-content {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .payments-list {
+            list-style-type: none;
+        }
+
+        .footer-title {
+            text-align: center;
+            background: rgba(8,0,41,0.6);
+            padding: 5px;
+        }
+
+        .icon-pay {
+            margin: 15px;
+        }
+
+        .form-group {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="section-header" style="background-color: #070b1f">
+        <section class="header-top-light border-bottom">
+            <div class="container">
+                <nav class="d-flex flex-column flex-md-row">
+                    <ul class="nav mr-auto d-none d-md-flex">
+                        <li><a href="https://www.instagram.com/bazarpapelarianota_10/" class="nav-link px-2"> <i class="fab fa-instagram"></i> </a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=5562994602792" class="nav-link px-2"> <i class="fab fa-whatsapp"></i> </a></li>
+                    </ul>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <i class="fa fa-phone"></i> Ligue para nós (62) 4002-8922 </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <section class="header-main border-bottom" style="background-color: #0f1536">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <a asp-controller="Home" asp-action="Index" class="brand-wrap">
+                            <img class="logo" src=@Url.Content("~/images/logobranca.png")>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-xl-5 col-sm-8 col-12">
+                        <form class="search" method="get">
+                            <div class="input-group w-100">
+                                <input type="text" class="form-control" style="width:55%;" type="search" name="pesquisa" value="@pesquisa" placeholder="O que você está procurando?">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-5 col-xl-4 col-sm-12">
+                        <div class="widgets-wrap float-md-right">
+                            <a href="/Home/Carrinho" class="widget-header mr-2">
+                                <div class="icon">
+                                    <i class="icon-sm rounded-circle border fa fa-shopping-cart"></i>
+                                    <span class="notify">0</span>
+                                </div>
+                            </a>
+                            <a href="#" class="widget-header mr-2">
+                                <div class="icon">
+                                    <i class="icon-sm rounded-circle border fa fa-heart"></i>
+                                </div>
+                            </a>
+                            <div class="widget-header dropdown">
+                                <a href="#" data-toggle="dropdown" data-offset="20,10">
+                                    <div class="icontext">
+                                        <div class="icon">
+                                            <i class="icon-sm rounded-circle border fa fa-user"></i>
+                                        </div>
+                                        <div class="text">
+                                            <small class="text-muted">Cadastrar | Logar</small>
+                                            <div>Minha conta <i class="fa fa-caret-down"></i> </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+
+                                    @{ /* LOGIN DO CLIENTE */ }
+                                    <form class="px-4 py-3" method="get" asp-action="Login" asp-controller="Home">
+
+                                        <div class="form-group">
+                                            <label>E-mail</label>
+                                            <input type="email" class="form-control" placeholder="email@exemplo.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Senha</label>
+                                            <input type="password" class="form-control" placeholder="Senha">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Entrar</button>
+                                    </form>
+                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-item" href="/Home/CadastroCliente">Não possui conta? Cadastre-se aqui</a>
+                                    <a class="dropdown-item" href="#">Esqueceu a senha?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="navbar navbar-main navbar-expand-lg border-bottom">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav5" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="main_nav5">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#"> <strong>Todas as categorias</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Escolar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Escritório</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Envolopes e Etiquetas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Organização</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Papeis</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Outros</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Categoria 1</a>
+                                <a class="dropdown-item" href="#">Categoria 2</a>
+                                <a class="dropdown-item" href="#">Categoria 3</a>
+                                <a class="dropdown-item" href="#">Categoria 4</a>
+                                <a class="dropdown-item" href="#">Categoria 5</a>
+                                <a class="dropdown-item" href="#">Categoria 6</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+    <hr />
+
+    <footer class="section-footer border-top">
+        <div class="row">
+            <div class="col">
+                <div class="footer-title">
+                    <h5>FORMAS DE PAGAMENTO</h5>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="footer-content">
+                        <img class="icon-pay" src="~/NovoLayout/_icon/payments/american.png" title="American Express" width="80" height="54">
+                        <img class="icon-pay" src="~/NovoLayout/_icon/payments/visa.png" title="Visa" width="80" height="44">
+                        <img class="icon-pay" src="~/NovoLayout/_icon/payments/dinners.png" title="Dinners Club" width="80" height="44">
+                        <img class="icon-pay" src="~/NovoLayout/_icon/payments/elo.png" title="Elo" width="44" height="44">
+                        <img class="icon-pay" src="~/NovoLayout/_icon/payments/hipercard.png" title="Hipercard" width="100" height="44">
+                        <img class="icon-pay" src="~/NovoLayout/_icon/payments/master.png" title="MasterCard" width="100" height="44">
+                        <img class="icon-pay" src="~/NovoLayout/_icon/payments/boleto.png" title="Boleto" width="80" height="44">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="footer-title">
+                    <h5>CONTATOS</h5>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="footer-content">
+                        <p>Nosso bazar e papelaria está localizado no endereço abaixo e você entrar em contato conosco através dos contatos abaixo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="footer-content">
+                        <ul class="list-icon">
+                            <li class="footer-item"> <i class="icon fa fa-map-marker"> </i>Rua H-152, Quadra 01, Lote 22 - Setor Morada dos Pássaros - Aparecida de Goiânia</li>
+                            <li class="footer-item"> <i class="icon fa fa-envelope"> </i>bazarepapelarianota10@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col ml-auto">
+                    <div class="footer-content">
+                        <ul class="list-icon">
+                            <li class="footer-item"> <i class="icon fa fa-phone"> </i>(62) 3277-1492 (62) 99460-2792</li>
+                            <li class="footer-item"> <i class="icon fa fa-clock"> </i>Seg-Sab 11:30am - 05:30pm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="footer-bottom border-top row text-center">
+            <div class="col-lg-6">
+                <p class="mb-0">
+                    <a href="#">Termos e condições</a>|
+                    <a href="#">Privacidade</a>|
+                    <a href="#">Cookies</a>|
+                    <a asp-action="Contato" asp-controller="Home">Sobre nós</a>
+                </p>
+            </div>
+        </section>
+    </footer>
+
+    <script async="" src="~/NovoLayout/_js/js.js"></script>
+    <script src="https://kit.fontawesome.com/118d30f56a.js" crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115916444-1');
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

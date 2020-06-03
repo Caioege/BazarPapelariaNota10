@@ -1,0 +1,232 @@
+﻿@model BazarPapelaria10.Models.ViewModels.IndexViewModel;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+    <script src='~/js/jquery.zoom.js'></script>
+
+    <title>Nota 10 - Nome Produto</title>
+
+    <script>
+        $(document).ready(function () {
+            $('#ex1').zoom();
+            $('#ex2').zoom({ on: 'grab' });
+            $('#ex3').zoom({ on: 'click' });
+            $('#ex4').zoom({ on: 'toggle' });
+        });
+
+/**/</script>
+
+    <style>
+        /* these styles are for the demo, but are not required for the plugin */
+        .zoom {
+            display: inline-block;
+            position: relative;
+        }
+
+            /* magnifying glass icon */
+            .zoom:after {
+                content: '';
+                display: block;
+                width: 33px;
+                height: 33px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: url(icon.png);
+            }
+
+            .zoom img {
+                display: block;
+            }
+
+                .zoom img::selection {
+                    background-color: transparent;
+                }
+
+        #ex2 img:hover {
+            cursor: url(grab.cur), default;
+        }
+
+        #ex2 img:active {
+            cursor: url(grabbed.cur), default;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Conteiner do produto -->
+    <!-- ZOOM NA IMAGEM
+        <div class="easyzoom easyzoom--overlay border" id='ex1'>
+        <a href="~/images/_produtos/2.png">
+            <img src="~/images/_produtos/2.png" alt="" width="640" height="360" />
+        </a>
+        </div>
+    -->
+
+    <div class="container" id="code_prod_detail" style="margin-top: 50px">
+        <div class="card">
+            <div class="row no-gutters">
+                <aside class="col-sm-5 border-right">
+                    <div class="conteiner">
+                        <div class="maximage">
+                            <div class="text-center border">
+                                <a data-fancybox="">
+                                    <img id="expandedImg" class="d-block w-100" src="~/images/_produtos/2.png" style="padding: 10px 10px 10px 10px">
+                                </a>
+                            </div>
+                        </div> <!-- slider-product.// -->
+
+                        <div class="row" style="margin-top:10px">
+                            <div class="col-sm text-center border">
+                                <img src="~/images/_produtos/3.png" style="width:50%; cursor: pointer;" onclick="trocaImagem(this);">
+                            </div>
+                            <div class="col-sm text-center">
+                                <img src="~/images/_produtos/2.png" style="width:50%; cursor: pointer" onclick="trocaImagem(this);">
+                            </div>
+                            <div class="col-sm text-center">
+                                <img src="~/images/_produtos/3.png" style="width:50%; cursor: pointer" onclick="trocaImagem(this);">
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <aside class="col-sm-7">
+                    <article class="p-5">
+                        <h3 class="title mb-3 text-center">Caderno The Big Bang Theory</h3>
+
+                        <div class="mb-3 text-center">
+                            <var class="price h3 text-warning">
+                                <span class="currency">R$ </span><span class="num">24,99</span>
+                            </var>
+                        </div> <!-- price-detail-wrap .// -->
+
+                        <dl>
+                            <dt>Descrição</dt>
+                            <dd>
+                                <p>
+                                    Aqui vai nossa querida descrição do produto.
+                                </p>
+                            </dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">Modelo:</dt>
+                            <dd class="col-sm-9">12345611</dd>
+
+                            <dt class="col-sm-3">Cor:</dt>
+                            <dd class="col-sm-9">Colorido </dd>
+
+                            <dt class="col-sm-3">Entrega:</dt>
+                            <dd class="col-sm-9">Aparecida de Goiânia e Goiânia </dd>
+                        </dl>
+
+                        <div>
+                            <table>
+                                <tr>
+                                    <th style="color:#d3ac2b;">&#9733;</th>
+                                    <th style="color:#d3ac2b">&#9733;</th>
+                                    <th style="color:#d3ac2b">&#9733;</th>
+                                    <th style="color:#d3ac2b">&#9733;</th>
+                                    <th style="">&#9734;</th>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <dl class="dlist-inline">
+                                    <dt>Quatidade: </dt>
+                                    <dd>
+                                        <select class="form-control form-control-sm" style="width:70px;">
+                                            <option> 1 </option>
+                                            <option> 2 </option>
+                                            <option> 3 </option>
+                                        </select>
+                                    </dd>
+                                </dl> <!-- item-property .// -->
+                            </div> <!-- col.// -->
+
+                            <div class="col-sm-7">
+                                <dl class="dlist-inline">
+                                    <dt>Quantidade de matérias: </dt>
+                                    <dd>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   id="inlineRadio2" value="option2">
+                                            <span class="form-check-label">12</span>
+                                        </label>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   id="inlineRadio2" value="option2">
+                                            <span class="form-check-label">24</span>
+                                        </label>
+                                        <label class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   id="inlineRadio2" value="option2">
+                                            <span class="form-check-label">36</span>
+                                        </label>
+                                    </dd>
+                                </dl> <!-- item-property .// -->
+                            </div> <!-- col.// -->
+                        </div> <!-- row.// -->
+
+                        <hr>
+                        <a href="#" class="btn  btn-primary"> Comprar agora </a>
+                        <a href="#" class="btn  btn-outline-primary">
+                            <i class="fas fa-shopping-cart"></i> Adicionar ao carrinho
+                        </a>
+                    </article> <!-- card-body.// -->
+                </aside> <!-- col.// -->
+            </div> <!-- row.// -->
+        </div> <!-- card.// -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="~/js/dist/easyzoom.js"></script>
+    <script>
+        // Instantiate EasyZoom instances
+        var $easyzoom = $('.easyzoom').easyZoom();
+
+        // Setup thumbnails example
+        var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+
+        $('.thumbnails').on('click', 'a', function (e) {
+            var $this = $(this);
+
+            e.preventDefault();
+
+            // Use EasyZoom's `swap` method
+            api1.swap($this.data('standard'), $this.attr('href'));
+        });
+
+        // Setup toggles example
+        var api2 = $easyzoom.filter('.easyzoom--with-toggle').data('easyZoom');
+
+        $('.toggle').on('click', function () {
+            var $this = $(this);
+
+            if ($this.data("active") === true) {
+                $this.text("Switch on").data("active", false);
+                api2.teardown();
+            } else {
+                $this.text("Switch off").data("active", true);
+                api2._init();
+            }
+        });
+
+        function trocaImagem(imgs) {
+            // Get the expanded image
+            var expandImg = document.getElementById("expandedImg");
+            // Get the image text
+            var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            expandImg.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            imgText.innerHTML = imgs.alt;
+            // Show the container element (hidden with CSS)
+            expandImg.parentElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

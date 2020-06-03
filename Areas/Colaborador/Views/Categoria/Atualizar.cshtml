@@ -1,0 +1,40 @@
+﻿@model BazarPapelaria10.Models.Categoria
+
+@{
+    ViewData["Title"] = "Atualizar";
+}
+
+<h2 style="margin-top:20px;"><i class="fas fa-pen-square"></i> Atualizar</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="DtCriacao" />
+    <input type="hidden" asp-for="DtAlteracao" />
+    <input type="hidden" asp-for="Ativo" />
+
+    <div class="form-group">
+        <label asp-for="Nomecateg">Nome:<h11 style="color:red;">*</h11></label>
+        <input asp-for="Nomecateg" class="form-control" placeholder="Nome da categoria.">
+        <span asp-validation-for="Nomecateg" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Desccateg">Descrição:</label>
+        <input asp-for="Desccateg" class="form-control" placeholder="Descrição da categoria.">
+        <span asp-validation-for="Desccateg" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Slug">Url:<h11 style="color:red;">*</h11></label>
+        <input asp-for="Slug" class="form-control" placeholder="Slug da categoria.">
+        <span asp-validation-for="Slug" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Obscateg">Observação:</label>
+        <input asp-for="Obscateg" class="form-control" placeholder="Observações.">
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-pen-square"></i> Alterar</button> <a asp-action="Index" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> Voltar</a>
+</form>

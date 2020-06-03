@@ -1,0 +1,60 @@
+﻿@model X.PagedList.IPagedList<BazarPapelaria10.Models.Colaborador>
+@{
+    ViewData["Title"] = "Nota 10 - Colaborador";
+}
+    <body>
+        <h2 style="margin-top:15px;"><i class="fas fa-th-list"></i> Colaborador</h2>
+
+        @if (Model.Count > 0)
+        {
+
+            @if (TempData["MSG_S"] != null)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    @TempData["MSG_S"]
+                </div>
+            }
+
+            <a asp-action="Cadastrar" class="btn btn-outline-primary" style="margin-top:15px; margin-bottom:15px;"><i class="fas fa-plus-square"></i><span> Cadastrar</span></a>
+            <div class="table-responsive rounded" style="margin-top:20px;">
+                <table class="table table-hover table-striped table-bordered ">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Id)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Nome)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Email)</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var colaborador in Model)
+                        {
+                            <tr>
+                                <th scope="row">#@colaborador.Id</th>
+                                <td>@colaborador.Nome</td>
+                                <td>@colaborador.Email</td>
+                                <td>
+                                    <a asp-action="Atualizar" asp-route-id="@colaborador.Id" class="btn btn-outline-secondary"><i class="fas fa-edit"></i> Atualizar</a>
+                                    <a asp-action="Excluir" asp-route-id="@colaborador.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Excluir</a>
+                                    <a asp-action="Inativar" asp-route-id="@colaborador.Id" class="btn btn-outline-info inativar" id="inativar"><i class="fas fa-eye-slash"></i> Inativar</a>
+                                </td>
+                            </tr>
+                        }
+                </table>
+            </div>
+
+            @Html.PagedListPager((IPagedList)Model, pagina => Url.Action("Index", new { pagina }))
+
+        }
+        else
+        {
+            <a asp-action="Cadastrar" class="btn btn-outline-primary" style="margin-top:15px; margin-bottom:15px;"><i class="fas fa-plus-square"></i><span> Cadastrar</span></a>
+
+            <div class="alert alert-dark alert-dismissible">
+                <strong>Nenhum colaborador cadastrado!</strong>
+            </div>
+        }
+
+
+    </body>

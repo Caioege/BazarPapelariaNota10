@@ -1,0 +1,96 @@
+﻿@model BazarPapelaria10.Models.Produto
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h2 style="margin-top:20px;margin-bottom:20px;"><i class="fas fa-pen-square"></i> Cadastrar</h2>
+
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="CategoriaId">Categoria:<h11 style="color:red;">*</h11></label>
+        <select asp-for="CategoriaId" class="form-control" asp-items="@ViewBag.Categorias">
+            <option value=""></option>
+        </select>
+        <span asp-validation-for="CategoriaId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nomeprod">Nome:<h11 style="color:red;">*</h11></label>
+        <input asp-for="Nomeprod" class="form-control" placeholder="Nome do produto.">
+        <span asp-validation-for="Nomeprod" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Descprod">Descrição:</label>
+        <textarea asp-for="Descprod" class="form-control"></textarea>
+        <span asp-validation-for="Descprod" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="Valorprod">Valor:<h11 style="color:red;">*</h11></label>
+            <div class="input-group" mb-2>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">R$</div>
+                </div>
+                <input asp-for="Valorprod" class="form-control dinheiro" placeholder="Valor do produto.">
+            </div>
+            <span asp-validation-for="Valorprod" class="text-danger"></span>
+        </div>
+
+        <div class="col" style="margin-bottom:15px;">
+            <label asp-for="Quantidade">Quantidade:<h11 style="color:red;">*</h11></label>
+            <div class="input-group" mb-2>
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-sort-amount-up-alt"></i></div>
+                </div>
+                <input asp-for="Quantidade" class="form-control" placeholder="Quantidade.">
+            </div>
+        </div>
+    </div>
+
+    @{
+        List<Imagem> imagens = new List<Imagem>();
+
+        if(Model != null)
+        {
+            imagens = Model.Imagens.ToList();
+        }
+    }
+
+<div class="row imagens" style="margin-bottom:15px;">
+    @for (int i = 0; i < 4; i++)
+    {
+
+        @if (imagens.ElementAtOrDefault(i) != null)
+        {
+            <div class="col-md-3">
+                <input type="file" class="input-file">
+                <div class="container-img-thumbnail">
+                    <img src="@imagens.ElementAtOrDefault(i).Caminho" class="img-thumbnail img-upload" style="width:200px;height:200px;" />
+                </div>
+                <div class="btn btn-outline-danger btn-imagem-excluir">
+                    <i class="fas fa-trash"></i>
+                </div>
+                <input type="hidden" name="imagem" value="@imagens.ElementAtOrDefault(i).Caminho">
+            </div>
+        }
+        else
+        {
+            <div class="col-md-3">
+                <input type="file" class="input-file">
+                <div class="container-img-thumbnail">
+                    <img src="~/images/noimage.png" class="img-thumbnail img-upload" style="width:200px;height:200px;" />
+                </div>
+                <div class="btn btn-outline-danger btn-imagem-excluir btn-ocultar">
+                    <i class="fas fa-trash"></i>
+                </div>
+                <input type="hidden" name="imagem">
+            </div>
+        }
+    }
+</div>
+
+        <button type="submit" class="btn btn-outline-primary"><i class="far fa-plus-square"></i> Adicionar</button> <a asp-action="Index" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> Voltar</a>
+</form>

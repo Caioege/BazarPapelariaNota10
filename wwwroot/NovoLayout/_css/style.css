@@ -1,0 +1,61 @@
+.section-header{
+    background-color:  rgba(4,0,23);
+}
+.section-header .a{
+    color:white;
+}
+.footer-content{
+    text-align: center;
+    padding-top: 20px;
+}
+.footer-bottom a{
+    color: white;
+}
+.footer-bottom a:hover{
+    color: rgb(245, 255, 128);
+}
+.payments-list{
+    list-style-type: none;
+}
+
+.footer-title{
+    text-align: center;
+    background: rgba(8,0,41,0.6);
+    padding:5px;
+}
+.icon-pay{
+    margin: 15px;
+}
+
+h11{
+    color: red;
+    font-size: 12px;
+}
+
+.card-title a{
+    padding: 5px;
+    margin: 5px;
+}
+.card{
+    border-color: white;
+}
+.card:hover{
+    border-color: white;
+    box-shadow: 1px 1px 3px 2px rgba(39, 22, 244, 0.1);
+    
+}
+
+        
+@media only screen and (min-width: 851px) {
+    .payments-list li{
+        padding: 10px;
+        margin-right: 50px;
+        display: inline;
+    }    
+}
+@media only screen and (max-width: 850px) {
+    .payments-list li{
+        padding: 10px;
+        margin-right: 25px;
+    }
+}
