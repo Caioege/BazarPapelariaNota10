@@ -23,8 +23,18 @@ using BazarPapelaria10.Models;
 
 #line default
 #line hidden
+#line 4 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using X.PagedList.Mvc.Core;
+
+#line default
+#line hidden
+#line 5 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using X.PagedList;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fa4c0c45048368340e75debc6755360a82c1463f", @"/Views/Home/Carrinho.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e5a5ac3baf21ca05540e373f2fae7d2681c59729", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1120744dfe263911c02614a645eb402501bfdc79", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Carrinho : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
@@ -61,7 +71,7 @@ using BazarPapelaria10.Models;
 #line default
 #line hidden
             BeginContext(46, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b8410dbd424a48c397097547ef76822a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1379d9d6c63e4960b51e9ae31d1da841", async() => {
                 BeginContext(52, 41, true);
                 WriteLiteral("\r\n    <title>Nota 10 - Carrinho</title>\r\n");
                 EndContext();
@@ -81,7 +91,7 @@ using BazarPapelaria10.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(104, 9721, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b557304d43e04e899ba9fe227fc24f6b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c5c085a16bbf41aa860ed5727aef1eb4", async() => {
                 BeginContext(110, 2205, true);
                 WriteLiteral(@"
     <main role=""main"">
@@ -128,7 +138,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("     </td>\r\n                                <td>\r\n                                    <select class=\"form-control\">\r\n                                        ");
                 EndContext();
                 BeginContext(2315, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b82c3e8b846452f83cca8f055c6584b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "49c47fb52bcd4e63a27b15c6e75522fc", async() => {
                     BeginContext(2323, 1, true);
                     WriteLiteral("1");
                     EndContext();
@@ -148,7 +158,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(2375, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c4bb1a7190194278afb7d664ab13e065", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "598042281bd547a6821313a1f8e94c32", async() => {
                     BeginContext(2383, 1, true);
                     WriteLiteral("2");
                     EndContext();
@@ -168,7 +178,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(2435, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f354aed0f2f45abbd47b58ec0b7d89d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8768685ccee343cb94ceec6e110867f5", async() => {
                     BeginContext(2443, 1, true);
                     WriteLiteral("3");
                     EndContext();
@@ -188,7 +198,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(2495, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6eabb0d177a14d14b44394824d3e710c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a008f9158364b45b7ba55d58c60a0fe", async() => {
                     BeginContext(2503, 1, true);
                     WriteLiteral("4");
                     EndContext();
@@ -243,7 +253,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("                             <select class=\"form-control\">\r\n                                        ");
                 EndContext();
                 BeginContext(4661, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1a5ef1d25b44ee3b48321b6899f0650", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e4a7e52498bf441db83d4ed72bd891f4", async() => {
                     BeginContext(4669, 1, true);
                     WriteLiteral("1");
                     EndContext();
@@ -263,7 +273,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(4721, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6fcd97ab7ff744a5b5c91cd20be80920", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acc33296194547fda80762aeacaae508", async() => {
                     BeginContext(4729, 1, true);
                     WriteLiteral("2");
                     EndContext();
@@ -283,7 +293,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(4781, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "208eed1cb64043b684caf5c6ce747ba0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d03d38af29c4cb5963027c55399677d", async() => {
                     BeginContext(4789, 1, true);
                     WriteLiteral("3");
                     EndContext();
@@ -303,7 +313,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(4841, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d3b49fdde3f4bc6bb0d166805f32d14", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54b92442ebca4b14b0338a99be3bbc47", async() => {
                     BeginContext(4849, 1, true);
                     WriteLiteral("4");
                     EndContext();
@@ -357,7 +367,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral(">\r\n                                    <select class=\"form-control\">\r\n                                        ");
                 EndContext();
                 BeginContext(7017, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cfa0ea4c0bb442ac82ab577f2daf9434", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a992ec0efd55456f9f934b9b09bd6143", async() => {
                     BeginContext(7025, 1, true);
                     WriteLiteral("1");
                     EndContext();
@@ -377,7 +387,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(7077, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "636ee435895d48a5979208c695b732c6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88a232e913384390967761b64878a492", async() => {
                     BeginContext(7085, 1, true);
                     WriteLiteral("2");
                     EndContext();
@@ -397,7 +407,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(7137, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "15a3ecb35ebb4b0d8a6e042d7fa228f9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b02b0115dc64035aefd9682ed67d12e", async() => {
                     BeginContext(7145, 1, true);
                     WriteLiteral("3");
                     EndContext();
@@ -417,7 +427,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(7197, 18, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f11750b06d4c4a489d24ad7b592d07fb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69a95fb8ea444c769bb7d7ce2e82176e", async() => {
                     BeginContext(7205, 1, true);
                     WriteLiteral("4");
                     EndContext();

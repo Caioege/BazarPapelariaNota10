@@ -36,7 +36,7 @@ function AjaxUploadImagemProduto() {
 
         $.ajax({
             type: "GET",
-            url: "/Colaborador/Imagem/Deletar?caminho=" + CampoHidden.val(),
+            url: "/Admin/Imagem/Deletar?caminho=" + CampoHidden.val(),
             error: function () {
                 alert("Erro ao deletar a imagem.");
             },
@@ -66,7 +66,7 @@ function AjaxUploadImagemProduto() {
         //REQUISIÇÃO AJAX ENVIANDO FORMULARIO
         $.ajax({
             type: "POST",
-            url: "/Colaborador/Imagem/Armazenar",
+            url: "/Admin/Imagem/Armazenar",
             data: Formulario,
             contentType: false,
             processData: false,

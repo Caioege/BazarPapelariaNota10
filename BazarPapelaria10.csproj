@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\Colaborador\Views\Report\ListagensProdutos.cshtml" />
+    <Content Remove="Areas\Admin\Views\Report\ListagensProdutos.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Colaborador\Models\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\uploads\temp\" />
   </ItemGroup>
 

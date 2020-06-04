@@ -52,6 +52,11 @@ namespace BazarPapelaria10.Repositories
 
         public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa)
         {
+            return ObterTodosProdutos(pagina, pesquisa, "A");
+        }
+
+        public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa, string ordenacao)
+        {
             int RegistrosPorPagina = _conf.GetValue<int>("RegistrosPorPagina");
 
             int NumeroPagina = pagina ?? 1;
@@ -60,6 +65,19 @@ namespace BazarPapelaria10.Repositories
             if (!string.IsNullOrEmpty(pesquisa))
             {
                 bancoProduto = bancoProduto.Where(a => a.Nomeprod.Contains(pesquisa.Trim()) || a.Descprod.Contains(pesquisa.Trim()));
+            }
+
+            if(ordenacao == "A")
+            {
+                bancoProduto = bancoProduto.OrderBy(a => a.Nomeprod);
+            }
+            if (ordenacao == "ME")
+            {
+                bancoProduto = bancoProduto.OrderBy(a => a.Valorprod);
+            }
+            if (ordenacao == "MA")
+            {
+                bancoProduto = bancoProduto.OrderByDescending(a => a.Valorprod);
             }
 
             return bancoProduto.Include(a => a.Imagens).ToPagedList<Produto>(NumeroPagina, RegistrosPorPagina);

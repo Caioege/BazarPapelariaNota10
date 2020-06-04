@@ -43,3 +43,12 @@
 .imagens .img-upload{
     cursor: pointer !important;
 }
+
+.btn{
+    margin-left: 5px;
+}
+
+.footer {
+    background-color: #343A40;
+    height: 50px;
+}
