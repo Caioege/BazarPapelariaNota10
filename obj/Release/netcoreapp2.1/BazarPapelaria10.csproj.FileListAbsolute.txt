@@ -30,3 +30,5 @@ C:\inetpub\wwwroot\BazarPapelaria10\obj\Release\netcoreapp2.1\BazarPapelaria10.d
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Release\netcoreapp2.1\BazarPapelaria10.pdb
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Release\netcoreapp2.1\BazarPapelaria10.csproj.CopyComplete
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Release\netcoreapp2.1\BazarPapelaria10.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Release\netcoreapp2.1\BazarPapelaria10.Bibliotecas.Mensagem.resources
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Release\netcoreapp2.1\BazarPapelaria10.csproj.GenerateResource.cache

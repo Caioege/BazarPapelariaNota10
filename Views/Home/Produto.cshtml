@@ -1,7 +1,5 @@
-﻿@model BazarPapelaria10.Models.ViewModels.IndexViewModel;
+﻿@model BazarPapelaria10.Models.Produto
 
-<!DOCTYPE html>
-<html>
 <head>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
     <script src='~/js/jquery.zoom.js'></script>
@@ -56,58 +54,72 @@
 </head>
 <body>
 
-    <!-- Conteiner do produto -->
-    <!-- ZOOM NA IMAGEM
-        <div class="easyzoom easyzoom--overlay border" id='ex1'>
-        <a href="~/images/_produtos/2.png">
-            <img src="~/images/_produtos/2.png" alt="" width="640" height="360" />
-        </a>
-        </div>
-    -->
-
-    <div class="container" id="code_prod_detail" style="margin-top: 50px">
-        <div class="card">
+    <div class="container">
+        <div class="container" id="code_prod_detail" style="margin-top: 50px">
             <div class="row no-gutters">
                 <aside class="col-sm-5 border-right">
                     <div class="conteiner">
                         <div class="maximage">
                             <div class="text-center border">
                                 <a data-fancybox="">
-                                    <img id="expandedImg" class="d-block w-100" src="~/images/_produtos/2.png" style="padding: 10px 10px 10px 10px">
+                                    @if (Model.Imagens.FirstOrDefault() == null)
+                                    {
+                                        <img id="expandedImg" class="d-block w-100" src="~/images/semimagem.jpg" alt="" style="padding: 10px 10px 10px 10px">
+                                    }
+                                    else
+                                    {
+                                        <img id="expandedImg" class="d-block w-100" src="@Url.Content(Model.Imagens.FirstOrDefault().Caminho)" style="padding: 10px 10px 10px 10px">
+                                    }
                                 </a>
                             </div>
-                        </div> <!-- slider-product.// -->
+                        </div>
 
                         <div class="row" style="margin-top:10px">
                             <div class="col-sm text-center border">
-                                <img src="~/images/_produtos/3.png" style="width:50%; cursor: pointer;" onclick="trocaImagem(this);">
+                                <img src="http://placehold.it/300x300" style="width:50%; cursor: pointer;" onclick="trocaImagem(this);">
                             </div>
-                            <div class="col-sm text-center">
-                                <img src="~/images/_produtos/2.png" style="width:50%; cursor: pointer" onclick="trocaImagem(this);">
+                            <div class="col-sm text-center border">
+                                <img src="http://placehold.it/500x500" style="width:50%; cursor: pointer" onclick="trocaImagem(this);">
                             </div>
-                            <div class="col-sm text-center">
-                                <img src="~/images/_produtos/3.png" style="width:50%; cursor: pointer" onclick="trocaImagem(this);">
+                            <div class="col-sm text-center border">
+                                <img src="http://placehold.it/400x400" style="width:50%; cursor: pointer" onclick="trocaImagem(this);">
                             </div>
                         </div>
                     </div>
                 </aside>
                 <aside class="col-sm-7">
                     <article class="p-5">
-                        <h3 class="title mb-3 text-center">Caderno The Big Bang Theory</h3>
+                        <h3 class="title mb-3 text-left">Caderno The Big Bang Theory</h3>
+                        <div class="rating-wrap my-3">
+                            <ul class="rating-stars text-center">
+                                <li style="width:90%" class="stars-active">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <small class="label-rating text-muted">132 avaliações</small>
+                            <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 pedidos </small>
+                        </div>
 
-                        <div class="mb-3 text-center">
+                        <div class="mb-3 text-left">
                             <var class="price h3 text-warning">
                                 <span class="currency">R$ </span><span class="num">24,99</span>
                             </var>
-                        </div> <!-- price-detail-wrap .// -->
+                        </div>
 
                         <dl>
                             <dt>Descrição</dt>
-                            <dd>
-                                <p>
-                                    Aqui vai nossa querida descrição do produto.
-                                </p>
-                            </dd>
+                            <dd><p>Descrição breve do produto em questão</p></dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Modelo:</dt>
@@ -116,72 +128,41 @@
                             <dt class="col-sm-3">Cor:</dt>
                             <dd class="col-sm-9">Colorido </dd>
 
-                            <dt class="col-sm-3">Entrega:</dt>
-                            <dd class="col-sm-9">Aparecida de Goiânia e Goiânia </dd>
+                            <dt class="col-sm-3">Qtd. Matérias:</dt>
+                            <dd class="col-sm-9">90</dd>
+
+                            <dt class="col-sm-3">Comprimento:</dt>
+                            <dd class="col-sm-9">150px</dd>
+
+                            <dt class="col-sm-3">Tipo:</dt>
+                            <dd class="col-sm-9">Macarrão</dd>
+
+                            <dt class="col-sm-3">Material:</dt>
+                            <dd class="col-sm-9">Plástico</dd>
+
+                            <dt class="col-sm-3">Marca:</dt>
+                            <dd class="col-sm-9">Samsung</dd>
                         </dl>
-
-                        <div>
-                            <table>
-                                <tr>
-                                    <th style="color:#d3ac2b;">&#9733;</th>
-                                    <th style="color:#d3ac2b">&#9733;</th>
-                                    <th style="color:#d3ac2b">&#9733;</th>
-                                    <th style="color:#d3ac2b">&#9733;</th>
-                                    <th style="">&#9734;</th>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <hr>
                         <div class="row">
-                            <div class="col-sm-5">
-                                <dl class="dlist-inline">
-                                    <dt>Quatidade: </dt>
-                                    <dd>
-                                        <select class="form-control form-control-sm" style="width:70px;">
-                                            <option> 1 </option>
-                                            <option> 2 </option>
-                                            <option> 3 </option>
-                                        </select>
-                                    </dd>
-                                </dl> <!-- item-property .// -->
-                            </div> <!-- col.// -->
-
-                            <div class="col-sm-7">
-                                <dl class="dlist-inline">
-                                    <dt>Quantidade de matérias: </dt>
-                                    <dd>
-                                        <label class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                   id="inlineRadio2" value="option2">
-                                            <span class="form-check-label">12</span>
-                                        </label>
-                                        <label class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                   id="inlineRadio2" value="option2">
-                                            <span class="form-check-label">24</span>
-                                        </label>
-                                        <label class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                   id="inlineRadio2" value="option2">
-                                            <span class="form-check-label">36</span>
-                                        </label>
-                                    </dd>
-                                </dl> <!-- item-property .// -->
-                            </div> <!-- col.// -->
-                        </div> <!-- row.// -->
-
-                        <hr>
-                        <a href="#" class="btn  btn-primary"> Comprar agora </a>
-                        <a href="#" class="btn  btn-outline-primary">
-                            <i class="fas fa-shopping-cart"></i> Adicionar ao carrinho
-                        </a>
-                    </article> <!-- card-body.// -->
-                </aside> <!-- col.// -->
-            </div> <!-- row.// -->
-        </div> <!-- card.// -->
+                            <div class="col-12">
+                                <hr class="divider">
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label" for="addCarrinho"></label>
+                                    <div>
+                                        <button id="addCarrinho" name="addCarrinho" class="btn btn-success btn-lg btn-block" type="Submit"><i class="fas fa-shopping-cart"></i>Adicionar ao carrinho</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </aside>
+            </div>
+            <div class="footer-card-produto">
+                <h3>Descrição detalhada do produto</h3>
+                <p style="padding: 10px;align-content: center;text-align: justify;">As dez peças do jogo de panelas compacto vermelho 20298/722 Turim, da Tramontina, vão fazer muito sucesso na sua cozinha. Feitas em alumínio, essas panelas possuem revestimento antiaderente Starflon T1, fazendo com que elas sejam muito mais simples de limpar e ainda ficam bonitas por mais tempo. E o melhor de tudo: podem ser usadas em fogão à gás, elétrico ou vitrocerâmico. É só escolher!</p>
+            </div>
+        </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="~/js/dist/easyzoom.js"></script>
     <script>
@@ -229,4 +210,3 @@
         }
     </script>
 </body>
-</html>

@@ -52,10 +52,10 @@ namespace BazarPapelaria10.Repositories
 
         public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa)
         {
-            return ObterTodosProdutos(pagina, pesquisa, "A");
+            return ObterTodosProdutos(pagina, pesquisa, "A", null);
         }
 
-        public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa, string ordenacao)
+        public IPagedList<Produto> ObterTodosProdutos(int? pagina, string pesquisa, string ordenacao, int? categoria)
         {
             int RegistrosPorPagina = _conf.GetValue<int>("RegistrosPorPagina");
 
@@ -80,7 +80,30 @@ namespace BazarPapelaria10.Repositories
                 bancoProduto = bancoProduto.OrderByDescending(a => a.Valorprod);
             }
 
+            if(categoria != null)
+            {
+                return bancoProduto.Include(a => a.Imagens).Where(a => a.CategoriaId == categoria).ToPagedList<Produto>(NumeroPagina, RegistrosPorPagina);
+            }
+
             return bancoProduto.Include(a => a.Imagens).ToPagedList<Produto>(NumeroPagina, RegistrosPorPagina);
+        }
+
+        public List<Produto> ObterProdutoReport(int? param, int? categoria)
+        {
+            if(param != null && categoria != null)
+            {
+                return _banco.Produtos.Where(a => a.Quantidade <= param && a.CategoriaId == categoria).ToList();
+            }
+            else if (param != null)
+            {
+                return _banco.Produtos.Where(a => a.Quantidade <= param).ToList();
+            }
+            else if(categoria != null)
+            {
+                return _banco.Produtos.Where(a => a.CategoriaId == categoria).ToList();
+            }
+
+            return _banco.Produtos.ToList();
         }
 
         public void AtivarDesativar(int Id)

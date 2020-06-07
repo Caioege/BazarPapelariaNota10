@@ -33,8 +33,13 @@ using X.PagedList;
 
 #line default
 #line hidden
+#line 6 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab288461a6f1fa983fa4b01933a35440b61cf095", @"/Views/Home/Categoria.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1120744dfe263911c02614a645eb402501bfdc79", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fb6023a6ada7180362064a56f703cf1d46f3f0ac", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Categoria : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

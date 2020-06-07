@@ -1,11 +1,6 @@
-﻿@model BazarPapelaria10.Models.ViewModels.IndexViewModel;
-@{ 
+﻿@{ 
     ViewData["Title"] = "Bazar e Papelaria Nota 10";
-    var pesquisa = Context.Request.Query["pesquisa"];
-    var ordenacao = Context.Request.Query["ordenacao"].ToString();
 }
-
-@using X.PagedList;
 
 <!DOCTYPE html>
 <html>
@@ -50,8 +45,6 @@
         <!-- Page Content -->
         <div class="container" style="margin-top:50px">
 
-            @if (string.IsNullOrEmpty(pesquisa))
-            {
                 <!-- INICIO PRIMEIRO CARROSSEL -->
 
                 <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
@@ -86,63 +79,11 @@
                 </div>
 
                 <!-- FIM PRIMEIRO CARROSSEL -->
-            }
 
-            @if (Model.lista.Count > 0)
-            {
+            <vc:produto-listagem></vc:produto-listagem>
 
-                <div class="row" style="margin-top:10px;">
-                    <div class="offset-md-10 col-md-2">
-                        <select id="ordenacao"asp-for="@ordenacao" class="form-control" asp-items="Model.ordenacao"></select>
-                    </div>
-                </div>
 
-                <div class="row" style="margin-top:50px">
-                    @foreach (var produto in Model.lista)
-                    {
-                        <div class="col-lg-3 col-md-6 mb-4" value="@produto.Id">
-                            <div class="card h-100">
-                                <a>
-                                    @if (produto.Imagens != null && produto.Imagens.Count() > 0)
-                                    {
-                                        <img class="card-img-top" src="@Url.Content(produto.Imagens.FirstOrDefault().Caminho)" alt="">
-                                    }
-                                    else
-                                    {
-                                        <img class="card-img-top" src="~/images/semimagem.jpg" alt="">
-                                    }
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title text-center">
-                                        @Html.ActionLink(produto.ToLower(produto.Nomeprod), "Produto", new { produto, Prod = UrlSlugger.ToUrlSlug(produto.Nomeprod) })
-                                    </h4>
-                                    <h5 class="text-center">@produto.Valorprod.ToString("C")</h5>
-
-                                    @if (produto.Descprod != null)
-                                    {
-                                        <p class="card-text">@produto.Descprod</p>
-                                    }
-                                    else
-                                    {
-                                        <p class="card-text text-center">Produto sem descrição.</p>
-                                    }
-                                </div>
-                                <div class="card-footer text-center">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-                <div style="margin-left:auto; margin-right: auto;">
-                    <div class="offset-md-3 col-md-6">
-                        @Html.PagedListPager((IPagedList)Model.lista, pagina => Url.Action("Index", new { pagina = pagina, pesquisa = pesquisa, ordenacao = ordenacao }))
-                    </div>
-                </div>
-            }
-            <!-- /.container -->
-        </div>
-        <!-- Fim catálogo de produtos -->
+        </div> 
     </main>
 </body>
 </html>

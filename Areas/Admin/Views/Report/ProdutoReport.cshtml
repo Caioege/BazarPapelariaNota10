@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Relatório";
+}
+
+<section class="conteiner">
+    <h2 style="margin-top:20px;margin-bottom:20px;"><i class="fas fa-print"></i> Relatório de Produtos por Quantidade em Estoque</h2>
+
+    <form method="post">
+
+        <div class="row">
+            <div class="col">
+                <label>Categoria:</label>
+                <div class="input-group" mb-2>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fab fa-contao"></i></div>
+                    </div>
+                    <select name="categoria" class="form-control" asp-items="@ViewBag.Categorias">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <span>Em branco para todas as categorias.</span>
+            </div>
+
+            <div class="col" style="margin-bottom:15px;">
+                <label>Quantidade:</label>
+                <div class="input-group" mb-2>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-sort-amount-up-alt"></i></div>
+                    </div>
+                    <input name="param" class="form-control" placeholder="Quantidade máxima em estoque">
+                </div>
+                <span>Em branco para qualquer valor em estoque.</span>
+            </div>
+        </div>
+
+        <div class="col-lg-12" style="text-align: right; margin-bottom: 10px;">
+            <a asp-controller="Home" asp-action="Painel" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> Voltar</a>
+            <button type="submit" class="btn btn-outline-primary btn-cdt-att"><i class="fas fa-print"></i> Imprimir</button>
+        </div>
+    </form>
+</section>

@@ -17,6 +17,8 @@ using BazarPapelaria10.Repositories;
 using BazarPapelaria10.Bibliotecas.Sessao;
 using BazarPapelaria10.Bibliotecas.Login;
 using BazarPapelaria10.Bibliotecas.Middleware;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Builder;
 
 namespace BazarPapelaria10
 {
@@ -67,7 +69,7 @@ namespace BazarPapelaria10
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IProdcategRepository, ProdcategRepository>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddDbContextPool<BazarPapelaria10Context>(options => options
                 // CONNECTION STRING PARA O BANCO DE DADOS
@@ -78,7 +80,7 @@ namespace BazarPapelaria10
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -96,16 +98,16 @@ namespace BazarPapelaria10
             app.UseSession();
             app.UseMiddleware<ValidateAntiForgeryTokenMiddleware>();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "areas",
-                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
+            app.UseRouting();
 
-                routes.MapRoute(
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

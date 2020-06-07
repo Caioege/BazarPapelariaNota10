@@ -13,17 +13,25 @@ namespace BazarPapelaria10.Controllers
     {
 
         private IProdutoRepository _produtoRepository;
+        private ICategoriaRepository _categoriaRepository;
 
+        public ProdutoController(ICategoriaRepository categoriaRepository, IProdutoRepository produtoRepository)
+        {
+            _produtoRepository = produtoRepository;
+            _categoriaRepository = categoriaRepository;
+        }
 
         [HttpGet]
-        public IActionResult Produto(int? pagina, string pesquisa)
+        public IActionResult ListagemCategoria(int Id)
         {
-            var viewModel = new IndexViewModel()
-            {
-                lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa)
-            };
 
-            return View(viewModel);
+            return RedirectToAction();
+        }
+
+        [HttpGet]
+        public IActionResult Produto()
+        {
+            return View();
         }
     }
 }

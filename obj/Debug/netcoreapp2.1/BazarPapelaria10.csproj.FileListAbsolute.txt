@@ -118,3 +118,5 @@ C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Vi
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\_ViewImports.g.cshtml.cs
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\_ViewStart.g.cshtml.cs
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp2.1\Razor\Views\Home\Categoria.g.cshtml.cs
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\ProdutoListagem\Default.g.cshtml.cs
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp2.1\Razor\Views\Produto\ListagemCategoria.g.cshtml.cs

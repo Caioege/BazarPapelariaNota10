@@ -16,7 +16,6 @@ namespace BazarPapelaria10.Areas.Colaborador.Controllers
     public class ProdutoController : Controller
     {
         private IProdutoRepository _produtoRepository;
-        private IProdcategRepository _prodcategRepository;
         private ICategoriaRepository _categoriaRepository;
         private IImagemRepository _imagemRepository;
 

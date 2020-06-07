@@ -77,7 +77,7 @@ using BazarPapelaria10.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(111, 2694, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7585005a1a66488388b658fb82b8e81b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eabdb1164554677a8d79684b98d885c", async() => {
                 BeginContext(117, 88, true);
                 WriteLiteral("\r\n        <h2 style=\"margin-top:15px;\"><i class=\"fas fa-th-list\"></i> Categoria</h2>\r\n\r\n");
                 EndContext();
@@ -117,7 +117,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("            ");
                 EndContext();
                 BeginContext(560, 164, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a02b6ff69704f23ac2d31ced5fe3dab", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "244ea2039a924114ab70904c9b5576b3", async() => {
                     BeginContext(663, 57, true);
                     WriteLiteral("<i class=\"fas fa-plus-square\"></i><span> Cadastrar</span>");
                     EndContext();
@@ -181,7 +181,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("</td>\r\n                                <td>\r\n                                    ");
                 EndContext();
                 BeginContext(1526, 130, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a2cd0bf9d571476488d03f3f069e4045", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bcd8c250bce542e99f7d63af652d3ed9", async() => {
                     BeginContext(1615, 37, true);
                     WriteLiteral("<i class=\"fas fa-edit\"></i> Atualizar");
                     EndContext();
@@ -217,7 +217,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("\r\n                                    ");
                 EndContext();
                 BeginContext(1694, 124, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c916087490a0450e9f8c4341a65dc1aa", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce2d5f651a0d4d88a12e2e31e441ffb6", async() => {
                     BeginContext(1778, 36, true);
                     WriteLiteral("<i class=\"fas fa-trash\"></i> Excluir");
                     EndContext();
@@ -280,7 +280,7 @@ using BazarPapelaria10.Models;
                 WriteLiteral("            ");
                 EndContext();
                 BeginContext(2119, 164, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0592720f03d4e9895364a77cdadab20", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0514a1dba9b43bd8ca22e7f4f79ce11", async() => {
                     BeginContext(2222, 57, true);
                     WriteLiteral("<i class=\"fas fa-plus-square\"></i><span> Cadastrar</span>");
                     EndContext();

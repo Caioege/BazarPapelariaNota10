@@ -30,14 +30,9 @@ namespace BazarPapelaria10.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(int? pagina, string pesquisa, string ordenacao)
+        public IActionResult Index()
         {
-            var viewModel = new IndexViewModel()
-            {
-                lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa, ordenacao)
-            };
-
-            return View(viewModel);
+            return View();
         }
 
         [HttpGet]
