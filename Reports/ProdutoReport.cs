@@ -25,6 +25,9 @@ namespace BazarPapelaria10.Reports
         Font _fontStyle;
         PdfPCell _pdfCell;
         PdfPTable _pdfTable = new PdfPTable(6);
+        PdfPTable _pdfTableSubHeader = new PdfPTable(3);
+        PdfPTable _pdfTableHeader = new PdfPTable(2);
+        PdfPTable _pdfTitulo = new PdfPTable(1);
         MemoryStream _memoryStream = new MemoryStream();
         List<Produto> _oProdutos = new List<Produto>();
         #endregion
@@ -36,7 +39,11 @@ namespace BazarPapelaria10.Reports
             _document.SetPageSize(PageSize.A4);
             _document.SetMargins(5f, 5f, 10f, 5f);
             _pdfTable.WidthPercentage = 90;
+            _pdfTableSubHeader.WidthPercentage = 90;
+            _pdfTableHeader.WidthPercentage = 90;
+            _pdfTitulo.WidthPercentage = 90;
             _pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+            _pdfTableSubHeader.HorizontalAlignment = Element.ALIGN_CENTER;
 
             _fontStyle = FontFactory.GetFont("Calibri", 10f, 1);
             PdfWriter docWrite = PdfWriter.GetInstance(_document, _memoryStream);
@@ -53,28 +60,90 @@ namespace BazarPapelaria10.Reports
             _pdfTable.SetWidths(sizes);
 
             this.ReportHeader();
+            this.EmpyRow(2, 2, _pdfTableHeader);
+            this.SetPageTitle();
+            this.EmpyRow(2, 1, _pdfTitulo);
+            this.ReportSubHeader();
+            this.EmpyRow(2, 3, _pdfTableSubHeader);
             this.ReportBody();
 
             _pdfTable.HeaderRows = 2;
 
+            _document.Add(_pdfTableHeader);
+            _document.Add(_pdfTableSubHeader);
             _document.Add(_pdfTable);
             _document.Close();
 
             return _memoryStream.ToArray();
+        }
+        private void ReportSubHeader()
+        {
+            var fontStyleBold = FontFactory.GetFont("Calibri", 9f, 1);
+            _fontStyle = FontFactory.GetFont("Calibri", 9f, 0);
+
+            #region Detalhes sub cabeçalho da tabela principal
+            _pdfCell = new PdfPCell(new Phrase("TOTAL DE PRODUTOS", fontStyleBold));
+            _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+            _pdfCell.BackgroundColor = BaseColor.GRAY;
+            _pdfTableSubHeader.AddCell(_pdfCell);
+
+            _pdfCell = new PdfPCell(new Phrase("TT PEÇAS:", fontStyleBold));
+            _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+            _pdfCell.BackgroundColor = BaseColor.GRAY;
+            _pdfTableSubHeader.AddCell(_pdfCell);
+
+            _pdfCell = new PdfPCell(new Phrase("VALOR ESTOQUE", fontStyleBold));
+            _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+            _pdfCell.BackgroundColor = BaseColor.GRAY;
+            _pdfTableSubHeader.AddCell(_pdfCell);
+
+            _pdfTableSubHeader.CompleteRow();
+
+            _pdfCell = new PdfPCell(new Phrase(_oProdutos.Count().ToString(), _fontStyle));
+            _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+            _pdfCell.BackgroundColor = BaseColor.WHITE;
+            _pdfTableSubHeader.AddCell(_pdfCell);
+
+            _pdfCell = new PdfPCell(new Phrase("15", _fontStyle));
+            _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+            _pdfCell.BackgroundColor = BaseColor.WHITE;
+            _pdfTableSubHeader.AddCell(_pdfCell);
+
+            _pdfCell = new PdfPCell(new Phrase("25", _fontStyle));
+            _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+            _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+            _pdfCell.BackgroundColor = BaseColor.WHITE;
+            _pdfTableSubHeader.AddCell(_pdfCell);
+
+            _pdfTableSubHeader.CompleteRow();
+
+            #endregion
         }
         private void ReportHeader()
         {
             _pdfCell = new PdfPCell(this.AddLogo());
             _pdfCell.Colspan = 1;
             _pdfCell.Border = 0;
-            _pdfTable.AddCell(_pdfCell);
+            _pdfTableHeader.AddCell(_pdfCell);
 
-            _pdfCell = new PdfPCell(this.SetPageTitle());
+            string dataHoraLocal = DateTime.Now.Date.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+
+            _fontStyle = FontFactory.GetFont("Times New Roman", 10f, 1);
+            _pdfCell = new PdfPCell(new Phrase("ATUALIZADO EM: " + dataHoraLocal, _fontStyle));
             _pdfCell.Colspan = _maxColumn;
-            _pdfCell.Border = 1;
-            _pdfTable.AddCell(_pdfCell);
+            _pdfCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+            _pdfCell.Border = 0;
+            _pdfCell.Colspan = 2;
+            _pdfCell.ExtraParagraphSpace = 1;
+            _pdfTableHeader.AddCell(_pdfCell);
+            _pdfTableHeader.CompleteRow();
 
-            _pdfTable.CompleteRow();
+            _pdfTableHeader.CompleteRow();
         }
         private PdfPTable AddLogo()
         {
@@ -94,49 +163,19 @@ namespace BazarPapelaria10.Reports
 
             return pdfPTable;
         }
-        private PdfPTable SetPageTitle()
+        private void SetPageTitle()
         {
-            int maxColumn = 4;
-            string dataHoraLocal = DateTime.Now.Date.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
 
-            PdfPTable pdfPTable = new PdfPTable(maxColumn);
             _fontStyle = FontFactory.GetFont("Calibri", 16f, 1);
             _pdfCell = new PdfPCell(new Phrase("RELATÓRIO DETALHADO DE PRODUTOS", _fontStyle));
-            _pdfCell.Colspan = _maxColumn;
+            _pdfCell.Colspan = 1;
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.Border = 0;
             _pdfCell.ExtraParagraphSpace = 1;
-            pdfPTable.AddCell(_pdfCell);
-            pdfPTable.CompleteRow();
+            _pdfTitulo.AddCell(_pdfCell);
+            _pdfTitulo.CompleteRow();
 
-            _fontStyle = FontFactory.GetFont("Times New Roman", 14f, 1);
-            _pdfCell = new PdfPCell(new Phrase("ATUALIZADO EM: " + dataHoraLocal, _fontStyle));
-            _pdfCell.Colspan = _maxColumn;
-            _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
-            _pdfCell.Border = 0;
-            _pdfCell.Colspan = 2;
-            _pdfCell.ExtraParagraphSpace = 1;
-            _pdfTable.AddCell(_pdfCell);
-            _pdfTable.CompleteRow();
-
-            return pdfPTable;
         }
-
-        //private void EmpyRow(int qtdLinhas)
-        //{
-        //    for (int cont = 1; cont <= qtdLinhas; cont++)
-        //    {
-        //        _pdfCell = new PdfPCell(new Phrase("", _fontStyle));
-        //        _pdfCell.Colspan = _maxColumn;
-        //        _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
-        //        _pdfCell.Border = 0;
-        //        _pdfCell.ExtraParagraphSpace = 10;
-        //        _pdfTable.AddCell(_pdfCell);
-        //        _pdfTable.CompleteRow();
-        //    }
-
-        //}
-
         private void ReportBody()
         {
             var fontStyleBold = FontFactory.GetFont("Times New Roman", 9f, 1);
@@ -232,6 +271,20 @@ namespace BazarPapelaria10.Reports
                 _pdfTable.CompleteRow();
             }
             #endregion
+        }
+        private void EmpyRow(int qtdLinhas, int qtdColunas, PdfPTable pdfTable)
+        {
+            for (int cont = 1; cont <= qtdLinhas; cont++)
+            {
+                _pdfCell = new PdfPCell(new Phrase(" ", _fontStyle));
+                _pdfCell.Colspan = qtdColunas;
+                _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                _pdfCell.Border = 0;
+                _pdfCell.ExtraParagraphSpace = 2;
+                pdfTable.AddCell(_pdfCell);
+                pdfTable.CompleteRow();
+            }
+
         }
     }
 }

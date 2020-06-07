@@ -62,13 +62,14 @@
                         <div class="maximage">
                             <div class="text-center border">
                                 <a data-fancybox="">
-                                    @if (Model.Imagens.FirstOrDefault() == null)
+
+                                    @if (Model.Imagens != null && Model.Imagens.Count() > 0)
                                     {
-                                        <img id="expandedImg" class="d-block w-100" src="~/images/semimagem.jpg" alt="" style="padding: 10px 10px 10px 10px">
+                                    <img id="expandedImg" class="d-block w-100" src="@Url.Content(Model.Imagens.FirstOrDefault().Caminho)" style="padding: 10px 10px 10px 10px">
                                     }
                                     else
                                     {
-                                        <img id="expandedImg" class="d-block w-100" src="@Url.Content(Model.Imagens.FirstOrDefault().Caminho)" style="padding: 10px 10px 10px 10px">
+                                        <img id="expandedImg" class="d-block w-100" src="~/images/semimagem.jpg" alt="" style="padding: 10px 10px 10px 10px">
                                     }
                                 </a>
                             </div>
@@ -89,7 +90,7 @@
                 </aside>
                 <aside class="col-sm-7">
                     <article class="p-5">
-                        <h3 class="title mb-3 text-left">Caderno The Big Bang Theory</h3>
+                        <h3 class="title mb-3 text-left">@Model.ToLower(Model.Nomeprod)</h3>
                         <div class="rating-wrap my-3">
                             <ul class="rating-stars text-center">
                                 <li style="width:90%" class="stars-active">
@@ -113,13 +114,13 @@
 
                         <div class="mb-3 text-left">
                             <var class="price h3 text-warning">
-                                <span class="currency">R$ </span><span class="num">24,99</span>
+                                <span class="currency">R$ </span><span class="num">@Model.Valorprod.ToString("C")</span>
                             </var>
                         </div>
 
                         <dl>
                             <dt>Descrição</dt>
-                            <dd><p>Descrição breve do produto em questão</p></dd>
+                            <dd><p>@Model.Descprod</p></dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Modelo:</dt>
