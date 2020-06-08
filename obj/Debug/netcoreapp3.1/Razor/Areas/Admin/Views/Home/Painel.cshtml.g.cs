@@ -40,8 +40,15 @@ using BazarPapelaria10.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Admin\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models.ProdutoAgregador;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b46a5cb5bf79d9d5e3405240d478c20ef7e97e6f", @"/Areas/Admin/Views/Home/Painel.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"60a38d1721f382072dddce50f0e7c0f348a38c6f", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"952fea91d92cf28967ffc5d1683418cfab8595bd", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Home_Painel : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

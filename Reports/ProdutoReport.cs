@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using iTextSharp.text;
 using System.IO;
 using BazarPapelaria10.Models;
+using BazarPapelaria10.Models.ProdutoAgregador;
 
 namespace BazarPapelaria10.Reports
 {

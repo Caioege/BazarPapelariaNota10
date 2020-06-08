@@ -1,6 +1,16 @@
 ﻿$(document).ready(function () {
     MudarOrdenacao();
+    MudarImagemPrincipalProduto();
 });
+
+function MudarImagemPrincipalProduto() {
+    $(".img-small-wrap").click(function () {
+        var caminho = $(this).attr("src");
+        $(".img-big-wrap img").attr("src", caminho);
+
+        $(".img-big-wrap a").attr("href", caminho);
+    });
+}
 
 function MudarOrdenacao() {
     $("#ordenacao").change(function () {

@@ -1,4 +1,5 @@
 ﻿using BazarPapelaria10.Models;
+using BazarPapelaria10.Models.ProdutoAgregador;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,8 @@ namespace BazarPapelaria10.Database
 
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
-        public DbSet<Prodcateg> Prodcateg { get; set; }
         public DbSet<Imagem> Imagens { get; set; }
         public DbSet<Pessoa> Pessoa { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<UsuCategoria> UsuCategorias { get; set; }
         public DbSet<Colaborador> Colaborador { get; set; }
     }
 }

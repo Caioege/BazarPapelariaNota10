@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BazarPapelaria10.Models.ProdutoAgregador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;

@@ -4,6 +4,7 @@ using System.Linq;
 using BazarPapelaria10.Bibliotecas.Filtro;
 using BazarPapelaria10.Database;
 using BazarPapelaria10.Models;
+using BazarPapelaria10.Models.ProdutoAgregador;
 using BazarPapelaria10.Reports;
 using BazarPapelaria10.Repositories.Contracts;
 using Microsoft.AspNetCore.Hosting;

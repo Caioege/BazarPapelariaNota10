@@ -29,9 +29,9 @@ namespace BazarPapelaria10.Controllers
         }
 
         [HttpGet]
-        public IActionResult Produto()
+        public IActionResult Visualizar(int Id)
         {
-            return View();
+            return View(_produtoRepository.ObterProduto(Id));
         }
     }
 }

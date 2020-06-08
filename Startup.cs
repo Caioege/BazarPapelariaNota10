@@ -18,7 +18,8 @@ using BazarPapelaria10.Bibliotecas.Sessao;
 using BazarPapelaria10.Bibliotecas.Login;
 using BazarPapelaria10.Bibliotecas.Middleware;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Builder;
+using BazarPapelaria10.Bibliotecas.Cookie;
+using BazarPapelaria10.Bibliotecas.CarrinhoCompra;
 
 namespace BazarPapelaria10
 {
@@ -46,6 +47,7 @@ namespace BazarPapelaria10
                 });
  
             services.AddScoped<Sessao>();
+            services.AddScoped<Cookie>();
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
 
@@ -67,7 +69,10 @@ namespace BazarPapelaria10
             services.AddScoped<IImagemRepository, ImagemReporitory>();
             services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
-            services.AddScoped<IProdcategRepository, ProdcategRepository>();
+
+            services.AddScoped<BazarPapelaria10.Bibliotecas.Cookie.Cookie>();
+
+            services.AddScoped<CarrinhoCompra>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 

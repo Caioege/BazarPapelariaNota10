@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BazarPapelaria10.Bibliotecas.Arquivo;
 using BazarPapelaria10.Bibliotecas.Filtro;
 using BazarPapelaria10.Models;
+using BazarPapelaria10.Models.ProdutoAgregador;
 using BazarPapelaria10.Repositories.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

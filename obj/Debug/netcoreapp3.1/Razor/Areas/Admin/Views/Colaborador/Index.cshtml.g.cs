@@ -40,8 +40,15 @@ using BazarPapelaria10.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Admin\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models.ProdutoAgregador;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9245410ac0885a9c7b00941b761796ca9ba6df1b", @"/Areas/Admin/Views/Colaborador/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"60a38d1721f382072dddce50f0e7c0f348a38c6f", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"952fea91d92cf28967ffc5d1683418cfab8595bd", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Colaborador_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<X.PagedList.IPagedList<BazarPapelaria10.Models.Colaborador>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Cadastrar", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -88,7 +95,7 @@ using BazarPapelaria10.Models;
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b7322", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b7525", async() => {
                 WriteLiteral("\r\n        <h2 style=\"margin-top:15px;\"><i class=\"fas fa-th-list\"></i> Colaborador</h2>\r\n\r\n");
 #nullable restore
 #line 8 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Admin\Views\Colaborador\Index.cshtml"
@@ -125,7 +132,7 @@ using BazarPapelaria10.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b8827", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b9030", async() => {
                     WriteLiteral("<i class=\"fas fa-plus-square\"></i><span> Cadastrar</span>");
                 }
                 );
@@ -205,7 +212,7 @@ using BazarPapelaria10.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("</td>\r\n                                <td>\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b13025", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b13228", async() => {
                     WriteLiteral("<i class=\"fas fa-edit\"></i> Atualizar");
                 }
                 );
@@ -237,7 +244,7 @@ using BazarPapelaria10.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b15458", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b15661", async() => {
                     WriteLiteral("<i class=\"fas fa-trash\"></i> Excluir");
                 }
                 );
@@ -269,7 +276,7 @@ using BazarPapelaria10.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b17888", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b18091", async() => {
                     WriteLiteral("<i class=\"fas fa-eye-slash\"></i> Inativar");
                 }
                 );
@@ -329,7 +336,7 @@ using BazarPapelaria10.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b21332", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9245410ac0885a9c7b00941b761796ca9ba6df1b21535", async() => {
                     WriteLiteral("<i class=\"fas fa-plus-square\"></i><span> Cadastrar</span>");
                 }
                 );

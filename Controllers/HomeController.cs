@@ -12,6 +12,7 @@ using BazarPapelaria10.Repositories;
 using Microsoft.AspNetCore.Http;
 using BazarPapelaria10.Bibliotecas.Login;
 using BazarPapelaria10.Bibliotecas.Filtro;
+using BazarPapelaria10.Models.ProdutoAgregador;
 
 namespace BazarPapelaria10.Controllers
 {

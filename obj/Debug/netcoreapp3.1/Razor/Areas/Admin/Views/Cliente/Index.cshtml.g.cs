@@ -40,8 +40,15 @@ using BazarPapelaria10.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Admin\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models.ProdutoAgregador;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"45c8eaf4e4727ea5fad5932db12be8e7d2766d45", @"/Areas/Admin/Views/Cliente/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"60a38d1721f382072dddce50f0e7c0f348a38c6f", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"952fea91d92cf28967ffc5d1683418cfab8595bd", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Cliente_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<X.PagedList.IPagedList<BazarPapelaria10.Models.Pessoa>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "get", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -85,7 +92,7 @@ using BazarPapelaria10.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45c8eaf4e4727ea5fad5932db12be8e7d2766d455556", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45c8eaf4e4727ea5fad5932db12be8e7d2766d455759", async() => {
                 WriteLiteral("\r\n        <h2 style=\"margin-top:15px; margin-bottom:30px;\"><i class=\"fas fa-th-list\"></i> Clientes</h2>\r\n\r\n        <!-- Pesquisa Cliente\r\n\r\n    --QueryString: Colaborador/Cliente/Index?pesquisa=\"\"\r\n    -->\r\n\r\n");
 #nullable restore
 #line 15 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Admin\Views\Cliente\Index.cshtml"
@@ -121,7 +128,7 @@ using BazarPapelaria10.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45c8eaf4e4727ea5fad5932db12be8e7d2766d457202", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45c8eaf4e4727ea5fad5932db12be8e7d2766d457405", async() => {
                     WriteLiteral("\r\n\r\n                <div class=\"input-group w-100\">\r\n                    <input for=\"pesquisa\" name=\"pesquisa\" id=\"pesquisa\"");
                     BeginWriteAttribute("value", " value=\"", 889, "\"", 906, 1);
 #nullable restore
@@ -261,7 +268,7 @@ WriteAttributeValue("", 897, pesquisa, 897, 9, false);
 #line hidden
 #nullable disable
                 WriteLiteral("                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45c8eaf4e4727ea5fad5932db12be8e7d2766d4513687", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45c8eaf4e4727ea5fad5932db12be8e7d2766d4513890", async() => {
                     WriteLiteral("<i class=\"fas fa-eye\"></i> Ativar");
                 }
                 );
@@ -304,7 +311,7 @@ WriteAttributeValue("", 897, pesquisa, 897, 9, false);
 #line hidden
 #nullable disable
                 WriteLiteral("                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45c8eaf4e4727ea5fad5932db12be8e7d2766d4516520", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45c8eaf4e4727ea5fad5932db12be8e7d2766d4516723", async() => {
                     WriteLiteral("<i class=\"fas fa-eye-slash\"></i> Inativar");
                 }
                 );

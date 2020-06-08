@@ -17,7 +17,7 @@ namespace BazarPapelaria10.Models
         public string Nome { get; set; }
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
         [EmailAddress(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E003")]
-        [EmailUnicoColaborador]
+        [Bibliotecas.Validacao.EmailUnicoColaborador]
         public string Email { get; set; }
         [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
         [MinLength(6, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E005")]

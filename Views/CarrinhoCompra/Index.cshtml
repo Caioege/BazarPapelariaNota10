@@ -1,0 +1,101 @@
+﻿@model List<BazarPapelaria10.Models.ProdutoAgregador.ProdutoItem>
+@{
+    ViewData["Title"] = "Carrinho";
+}
+<head>
+    <title>Nota 10 - Carrinho</title>
+</head>
+
+<body>
+    <main role="main">
+
+        <section class="container" id="order" style="margin-top: 50px">
+
+            <h2 class="title-doc">Carrinho de Compras</h2>
+
+            <div id="code_cart">
+                <div class="card">
+                    <table class="table table-hover shopping-cart-wrap">
+                        <thead class="text-muted">
+                            <tr>
+                                <th scope="col">Produto</th>
+                                <th scope="col" width="120">Quantidade</th>
+                                <th scope="col" width="200">Preço</th>
+                                <th scope="col" width="120" class="text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <figure class="media">
+                                            <div class="img-wrap"><img src="/images/noimage.png" class="img-thumbnail img-sm"></div>
+                                            <figcaption class="media-body">
+                                                <h6 class="title text-truncate">@item.Nomeprod</h6>
+                                                <dl class="dlist-inline small">
+                                                    <dt>Size: </dt>
+                                                    <dd>XXL</dd>
+                                                </dl>
+                                                <dl class="dlist-inline small">
+                                                    <dt>Color: </dt>
+                                                    <dd>Orange color</dd>
+                                                </dl>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <div class="price-wrap">
+                                            <var class="price">@((item.Valorprod * item.QuantidadeProdutoCarrinho).ToString("C"))</var>
+                                            <p><small class="text-muted">(@item.Valorprod.ToString("C") cada)</small></p>
+                                        </div> <!-- price-wrap .// -->
+                                    </td>
+                                    <td>
+                                        <a asp-controller="CarrinhoCompra" asp-action="RemoverItem" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Remover</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div> <!-- card.// -->
+            </div> <!-- code-wrap.// -->
+        </section>
+        <br />
+        <br />
+
+        <section class="container">
+            <div class="row">
+                <aside class="col-md-6 text-center" style="margin-right:auto; margin-left:auto;">
+                    <h4 class="subtitle-doc">
+                        <i class="fas fa-money-bill-wave"></i> Total a pagar
+                    </h4>
+                    <div id="code_desc_right">
+                        <div class="box">
+                            <dl class="dlist-align">
+                                <dt><i class="fas fa-truck-loading"></i><strong> Entrega:</strong></dt>
+                                <dd class="text-right">Aparecida de Goiânia e Goiânia
+                                <small class="text-muted">/frete grátis</small></dd>
+                            </dl>
+                            <dl class="dlist-align">
+                                <dt><i class="fas fa-money-check-alt"></i><strong> Total a pagar:</strong></dt>
+                                <dd class="text-right h5 b">R$ 100,00 </dd>
+                            </dl>
+                        </div> <!-- box.// -->
+                    </div> <!-- code-wrap.// -->
+                </aside>
+            </div>
+        </section>
+
+        <hr class="featurette-divider">
+    </main>
+</body>

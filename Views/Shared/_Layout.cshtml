@@ -44,6 +44,7 @@
     <link href="~/lib/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/pagedlist/PagedList.css" rel="stylesheet" />
     <link href="~/lib/fontawesome/all.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-ecommerce-uikit/ui-ecommerce/plugins/fancybox/fancybox.min.css" rel="stylesheet" />
 
     <style>
 
@@ -116,7 +117,7 @@
                     </div>
                     <div class="col-lg-5 col-xl-4 col-sm-12">
                         <div class="widgets-wrap float-md-right">
-                            <a href="/Home/Carrinho" class="widget-header mr-2">
+                            <a asp-controller="CarrinhoCompra" asp-action="Index" class="widget-header mr-2">
                                 <div class="icon">
                                     <i class="icon-sm rounded-circle border fa fa-shopping-cart"></i>
                                     <span class="notify">0</span>
@@ -272,7 +273,7 @@
 
     <script async="" src="~/NovoLayout/_js/js.js"></script>
     <script src="https://kit.fontawesome.com/118d30f56a.js" crossorigin="anonymous"></script>
-
+    <script src="~/lib/bootstrap-ecommerce-uikit/ui-ecommerce/plugins/fancybox/fancybox.min.js"></script>
     <script src="~/js/ActionsVisitante.js"></script>
 
     <script>

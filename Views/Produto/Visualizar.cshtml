@@ -1,0 +1,164 @@
+﻿@model BazarPapelaria10.Models.ProdutoAgregador.Produto
+
+<head>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+    <script src='~/js/jquery.zoom.js'></script>
+
+    <title>Nota 10 - @Model.ToLower(Model.Nomeprod)</title>
+
+    <style>
+        /* these styles are for the demo, but are not required for the plugin */
+        .zoom {
+            display: inline-block;
+            position: relative;
+        }
+
+            /* magnifying glass icon */
+            .zoom:after {
+                content: '';
+                display: block;
+                width: 33px;
+                height: 33px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: url(icon.png);
+            }
+
+            .zoom img {
+                display: block;
+            }
+
+                .zoom img::selection {
+                    background-color: transparent;
+                }
+
+        #ex2 img:hover {
+            cursor: url(grab.cur), default;
+        }
+
+        #ex2 img:active {
+            cursor: url(grabbed.cur), default;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="container border" id="code_prod_detail" style="margin-top: 50px">
+            <div class="row no-gutters">
+                <aside class="col-sm-5 border-right">
+                    <article class="gallery-wrap">
+                        <div class="img-big-wrap">
+                            @if (Model.Imagens != null && Model.Imagens.Count > 0)
+                            {
+                                <a href="@Model.Imagens.FirstOrDefault().Caminho" data-fancybox="">
+                                    <img class="d-block w-100" src="@Model.Imagens.FirstOrDefault().Caminho" alt="" style="padding: 10px 10px 10px 10px">
+                                </a>
+                            }
+                            else
+                            {
+                                <img class="d-block w-100" src="/images/semimagem.jpg" alt="" style="padding: 10px 10px 10px 10px">
+                            }
+                        </div>
+
+                        <div class="img-small-wrap row" style="margin-top:10px">
+
+                            @if (Model.Imagens != null && Model.Imagens.Count > 0)
+                            {
+                                foreach (var imagem in Model.Imagens)
+                                {
+                                    <div class="item-gallery col-sm text-center">
+                                        <img src="@imagem.Caminho " class="border border-gray" style="width:50%; cursor: pointer;" onclick="trocaImagem(this);">
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </article>
+                </aside>
+                <aside class="col-sm-7">
+                    <article class="p-5">
+                        <h2 class="title mb-3 text-center">@Model.ToLower(Model.Nomeprod)</h2>
+                        <div class="rating-wrap my-3 text-center">
+                            <ul class="rating-stars text-center">
+                                <li style="width:90%" class="stars-active">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <small class="label-rating text-muted">132 avaliações</small>
+                            <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 pedidos </small>
+                        </div>
+
+                        <div class="mb-3 text-center">
+                            <var class="price h3 text-warning">
+                                <span class="currency"></span><span class="num">@Model.Valorprod.ToString("C")</span>
+                            </var>
+                        </div>
+
+                        <dl>
+                            <dt><i class="fas fa-sort-amount-up-alt"></i> Quantidade em estoque:</dt>
+                            <dd><p>@Model.Quantidade.ToString().Replace(",00", "")</p></dd>
+                        </dl>
+                        <dl class="row">
+                            @if (Model.Modelo != null)
+                            {
+                                <dt class="col-sm-3">Modelo:</dt>
+                                <dd class="col-sm-9">@Model.Modelo</dd>
+                            }
+
+                            @if (Model.Cor != null)
+                            {
+                                <dt class="col-sm-3">Cor:</dt>
+                                <dd class="col-sm-9">@Model.Cor </dd>
+                            }
+
+                            @if (Model.Material != null)
+                            {
+                                <dt class="col-sm-3">Material:</dt>
+                                <dd class="col-sm-9">Plástico</dd>
+                            }
+
+                            @if (Model.Marca != null)
+                            {
+                                <dt class="col-sm-3">Marca:</dt>
+                                <dd class="col-sm-9">Samsung</dd>
+                            }
+
+                            <dt class="col-sm-3">Entrega:</dt>
+                            <dd class="col-sm-9">Somente para Aparecida de Goiânia e Goiânia</dd>
+                        </dl>
+                        <div class="row">
+                            <div class="col-12">
+                                <hr class="divider">
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label" for="addCarrinho"></label>
+                                    <div>
+                                        <a asp-controller="CarrinhoCompra" asp-action="AdicionarItem" asp-route-id="@Model.Id" class="btn btn-success btn-lg btn-block"><i class="fas fa-shopping-cart"></i>Adicionar ao carrinho</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </aside>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.Descprod))
+            {
+                <div class="footer-card-produto">
+                    <h3 class="text-center" style="margin-top:25px;">Descrição detalhada do produto</h3>
+                    <p style="padding: 10px;align-content: center;text-align: justify;">@Model.Descprod</p>
+                </div>
+            }
+        </div>
+    </div>
+</body>
