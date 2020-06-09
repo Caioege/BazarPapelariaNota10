@@ -18,6 +18,10 @@
         }
     });
 
+    $("#btnPDF").click(function () {
+        window.open('/Admin/Report/ProdutoReport', '_blank');
+    });
+
     AjaxUploadImagemProduto();
 
     $('.dinheiro').mask('000.000.000.000.000,00', { reverse: true });

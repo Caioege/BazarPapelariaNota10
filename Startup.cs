@@ -43,11 +43,11 @@ namespace BazarPapelaria10
             services.AddSession(
                 options =>
                 {
-
+                    options.Cookie.IsEssential = true;
                 });
  
             services.AddScoped<Sessao>();
-            services.AddScoped<Cookie>();
+            services.AddScoped<BazarPapelaria10.Bibliotecas.Cookie.Cookie>();
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
 
@@ -74,7 +74,7 @@ namespace BazarPapelaria10
 
             services.AddScoped<CarrinhoCompra>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
 
             services.AddDbContextPool<BazarPapelaria10Context>(options => options
                 // CONNECTION STRING PARA O BANCO DE DADOS

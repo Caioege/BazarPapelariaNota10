@@ -68,7 +68,7 @@ namespace BazarPapelaria10.Reports
             this.EmpyRow(2, 3, _pdfTableSubHeader);
             this.ReportBody();
 
-            _pdfTable.HeaderRows = 2;
+            _pdfTable.HeaderRows = 1;
 
             _document.Add(_pdfTableHeader);
             _document.Add(_pdfTableSubHeader);

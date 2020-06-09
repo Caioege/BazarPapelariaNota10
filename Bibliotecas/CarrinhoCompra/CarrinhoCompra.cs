@@ -25,7 +25,7 @@ namespace BazarPapelaria10.Bibliotecas.CarrinhoCompra
                 lista = Consultar();
                 var itemLocalizado = lista.SingleOrDefault(a => a.Id == item.Id);
 
-                if (itemLocalizado != null)
+                if (itemLocalizado == null)
                 {
                     lista.Add(item);
                 }
@@ -71,9 +71,9 @@ namespace BazarPapelaria10.Bibliotecas.CarrinhoCompra
 
         public List<ProdutoItem> Consultar()
         {
-            if (Existe(Key))
+            if (_cookie.Existe(Key))
             {
-                string valor = _cookie.Consultar(Key);
+                var valor = _cookie.Consultar(Key);
                 return JsonConvert.DeserializeObject<List<ProdutoItem>>(valor);
             }
             else

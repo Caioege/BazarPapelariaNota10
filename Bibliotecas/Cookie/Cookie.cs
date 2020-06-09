@@ -21,7 +21,8 @@ namespace BazarPapelaria10.Bibliotecas.Cookie
         public void Cadastrar(string Key, string Valor)
         {
             CookieOptions Options = new CookieOptions();
-            Options.Expires = DateTime.Now.AddDays(7);
+            Options.IsEssential = true;
+            Options.Expires = DateTime.Now.AddDays(5);
 
             _context.HttpContext.Response.Cookies.Append(Key, Valor, Options);
         }
