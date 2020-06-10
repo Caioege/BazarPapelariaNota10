@@ -20,6 +20,8 @@ using BazarPapelaria10.Bibliotecas.Middleware;
 using Microsoft.Extensions.Hosting;
 using BazarPapelaria10.Bibliotecas.Cookie;
 using BazarPapelaria10.Bibliotecas.CarrinhoCompra;
+using AutoMapper;
+using BazarPapelaria10.Bibliotecas.AutoMapper;
 
 namespace BazarPapelaria10
 {
@@ -35,7 +37,6 @@ namespace BazarPapelaria10
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             //Session - Configuração
             services.AddHttpContextAccessor();
 
@@ -62,6 +63,11 @@ namespace BazarPapelaria10
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            //AUTOMAPPER
+            var config = new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfile()); });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
 
             //INTERFACES - PADRÃO REPOSITORY
             services.AddScoped<IPessoaRepository, PessoaRepository>();

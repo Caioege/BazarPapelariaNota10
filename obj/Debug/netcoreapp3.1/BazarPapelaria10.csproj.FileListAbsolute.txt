@@ -39,9 +39,6 @@ C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.Bib
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.csproj.GenerateResource.cache
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.AssemblyInfoInputs.cache
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.AssemblyInfo.cs
-C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.csproj.CoreCompileInputs.cache
-C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.MvcApplicationPartsAssemblyInfo.cs
-C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.MvcApplicationPartsAssemblyInfo.cache
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.RazorAssemblyInfo.cache
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.RazorAssemblyInfo.cs
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.TagHelpers.input.cache
@@ -94,3 +91,8 @@ C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.dll
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.pdb
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.genruntimeconfig.cache
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\BazarPapelaria10\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\inetpub\wwwroot\BazarPapelaria10\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.MvcApplicationPartsAssemblyInfo.cs
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.MvcApplicationPartsAssemblyInfo.cache

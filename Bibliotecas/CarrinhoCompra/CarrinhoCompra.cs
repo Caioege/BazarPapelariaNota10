@@ -31,7 +31,7 @@ namespace BazarPapelaria10.Bibliotecas.CarrinhoCompra
                 }
                 else
                 {
-                    itemLocalizado.Quantidade = itemLocalizado.Quantidade + 1;
+                    itemLocalizado.QuantidadeProdutoCarrinho = itemLocalizado.QuantidadeProdutoCarrinho + 1;
                 }
             }
             else
@@ -50,7 +50,7 @@ namespace BazarPapelaria10.Bibliotecas.CarrinhoCompra
 
             if (itemLocalizado != null)
             {
-                itemLocalizado.Quantidade = item.Quantidade;
+                itemLocalizado.QuantidadeProdutoCarrinho = item.QuantidadeProdutoCarrinho;
 
                 Salvar(lista);
             }

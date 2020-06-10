@@ -58,7 +58,7 @@ namespace BazarPapelaria10.Areas.Colaborador.Controllers
         }
 
         [HttpPost]
-        public IActionResult ProdutoReport(int? param, int? categoria)
+        public IActionResult ProdutoReport([FromForm] int? param, int? categoria)
         {
             List<Produto> oProdutos = _produtoRepository.ObterProdutoReport(param, categoria);
 

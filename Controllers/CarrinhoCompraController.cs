@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BazarPapelaria10.Bibliotecas.CarrinhoCompra;
 using BazarPapelaria10.Models;
 using BazarPapelaria10.Models.ProdutoAgregador;
@@ -14,11 +15,13 @@ namespace BazarPapelaria10.Controllers
     {
         private CarrinhoCompra _carrinhoCompra;
         private IProdutoRepository _produtoRepository;
+        private IMapper _mapper;
 
-        public CarrinhoCompraController(CarrinhoCompra carrinhoCompra, IProdutoRepository produtoRepository)
+        public CarrinhoCompraController(CarrinhoCompra carrinhoCompra, IProdutoRepository produtoRepository, IMapper mapper)
         {
             _carrinhoCompra = carrinhoCompra;
             _produtoRepository = produtoRepository;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
@@ -27,14 +30,11 @@ namespace BazarPapelaria10.Controllers
 
             List<ProdutoItem> produtoItemCompleto = new List<ProdutoItem>();
 
-            foreach(var item in produtoItemCarrinho)
+            foreach (var item in produtoItemCarrinho)
             {
                 Produto produto = _produtoRepository.ObterProduto(item.Id);
-                ProdutoItem produtoItem = new ProdutoItem();
-                produtoItem.Id = produto.Id;
-                produtoItem.Nomeprod = produto.Nomeprod;
-                produtoItem.Imagens = produto.Imagens;
-                produtoItem.Valorprod = produto.Valorprod;
+
+                ProdutoItem produtoItem = _mapper.Map<ProdutoItem>(produto);
                 produtoItem.QuantidadeProdutoCarrinho = item.QuantidadeProdutoCarrinho;
 
                 produtoItemCompleto.Add(produtoItem);

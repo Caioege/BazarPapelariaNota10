@@ -1,7 +1,43 @@
 ﻿$(document).ready(function () {
     MudarOrdenacao();
     MudarImagemPrincipalProduto();
+    MudarQuantidadeProdutoCarrinho();
 });
+
+function MudarQuantidadeProdutoCarrinho() {
+    $("#order .btn-car").click(function () {
+        //var pai = $(this).parent().parent();
+        if ($(this).hasClass("diminuir")) {
+            LogicaMudarQuantidadeProdutoUnitarioCarrinho("diminuir", $(this));
+
+            
+        }
+        if ($(this).hasClass("aumentar")) {
+            LogicaMudarQuantidadeProdutoUnitarioCarrinho("aumentar", $(this));
+
+
+        }
+        
+    });
+}
+
+function LogicaMudarQuantidadeProdutoUnitarioCarrinho(operacao, botao) {
+    var pai = botao.parent().parent();
+    var produtoId = pai.find(".inputProdutoId").val();
+    var quantidadeEstoque = pai.find(".inputQuantidadeEstoque").val();
+    var valorUnitario = pai.find(".inputValorUnitario").val();
+
+    var campoQuantitadeProdutoCarrinho = pai.find("inputQuantidadeProdutoCarrinho");
+    var quantitadeProdutoCarrinho = parseInt(campoQuantitadeProdutoCarrinho.val());
+
+    if (operacao == "aumentar") {
+        quantitadeProdutoCarrinho++;
+
+        campoQuantitadeProdutoCarrinho.val(quantitadeProdutoCarrinho);
+    } else if (operacao == "diminuir") {
+        quantitadeProdutoCarrinho--;
+    }
+}
 
 function MudarImagemPrincipalProduto() {
     $(".img-small-wrap").click(function () {

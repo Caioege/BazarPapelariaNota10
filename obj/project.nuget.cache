@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "t8pZwaGXy6crVvnqIlnBLoCIS6tauS2RbOJ9tMHpB2Nh11t6WP1nw/MQLlLcwpdH+84tzM6KPWs/bt7MgpyCNg==",
+  "dgSpecHash": "fqw+yDijEX6peoEBP71oh7iPJZyUBVLgAKTc+NH7wjusbSdV1e5vfbWbu5enGSBRTT28w9DYcORAsdkcbiggcQ==",
   "success": true,
   "projectFilePath": "C:\\inetpub\\wwwroot\\BazarPapelaria10\\BazarPapelaria10.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\caieg\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\caieg\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\caieg\\.nuget\\packages\\itextsharp\\5.5.13.1\\itextsharp.5.5.13.1.nupkg.sha512",
     "C:\\Users\\caieg\\.nuget\\packages\\jquery\\1.7.0\\jquery.1.7.0.nupkg.sha512",
     "C:\\Users\\caieg\\.nuget\\packages\\jquery.datatables\\1.10.15\\jquery.datatables.1.10.15.nupkg.sha512",
