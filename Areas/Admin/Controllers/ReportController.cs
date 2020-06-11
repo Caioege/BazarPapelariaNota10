@@ -6,6 +6,7 @@ using BazarPapelaria10.Database;
 using BazarPapelaria10.Models;
 using BazarPapelaria10.Models.ProdutoAgregador;
 using BazarPapelaria10.Reports;
+using BazarPapelaria10.Repositories;
 using BazarPapelaria10.Repositories.Contracts;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -23,18 +24,14 @@ namespace BazarPapelaria10.Areas.Colaborador.Controllers
         private readonly IWebHostEnvironment _oHostEnvironment;
         private IProdutoRepository _produtoRepository;
         private ICategoriaRepository _categoriaRepository;
+        private IPessoaRepository _pessoaRepository;
 
-        public ReportController(BazarPapelaria10Context banco, IProdutoRepository produtoRepository, ICategoriaRepository categoriaRepository)
+        public ReportController(BazarPapelaria10Context banco, IProdutoRepository produtoRepository, ICategoriaRepository categoriaRepository, IPessoaRepository pessoaRepository)
         {
             _db = banco;
             _produtoRepository = produtoRepository;
             _categoriaRepository = categoriaRepository;
-        }
-
-        public IActionResult Index() 
-        {
-
-            return View();
+            _pessoaRepository = pessoaRepository;
         }
 
         public JsonResult GetProdutos()
@@ -64,6 +61,21 @@ namespace BazarPapelaria10.Areas.Colaborador.Controllers
 
             ProdutoReport rpt = new ProdutoReport(_oHostEnvironment);
             return File(rpt.Report(oProdutos), "application/pdf");
+        }
+
+        [HttpGet]
+        public IActionResult ClienteReport()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ClienteReport(int? param)
+        {
+            List<Pessoa> oClientes = _pessoaRepository.ObterPessoaReport();
+            ClienteReport rpt = new ClienteReport(_oHostEnvironment);
+            return File(rpt.Report(oClientes), "application/pdf");
         }
     }
 }

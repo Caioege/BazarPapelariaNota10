@@ -1,0 +1,21 @@
+﻿@{ ViewData["Title"] = "Nota 10 - Relatório de Clientes"; }
+
+<section class="container">
+    <h3 style="margin-top:20px;margin-bottom:20px;" class="text-left"><i class="fas fa-print"></i> Relatório de Clientes Cadastrados</h3>
+    <form method="post">
+        <div class="row">
+            <div class="col">
+                <div class="col-lg-12" style="text-align: right; margin-bottom: 10px;">
+                    <a asp-controller="Home" asp-action="Painel" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> Voltar</a>
+                    <button type="submit" id="btnPDF" class="btn btn-outline-primary btn-cdt-att"><i class="fas fa-print"></i> Imprimir</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<script type="text/javascript" src="wwwroot\lib\jquery\dist\jquery.js"></script>
+<script type="text/javascript">
+    $("#btnpdf").click(function () {
+        window.open('/admin/report/ClienteReport', '_blank');
+    });</script>

@@ -67,5 +67,10 @@ namespace BazarPapelaria10.Repositories
 
             return bancoCliente.ToPagedList<Pessoa>(numeroPagina, _conf.GetValue<int>("RegistrosPorPagina"));
         }
+
+        public List<Pessoa> ObterPessoaReport()
+        {
+            return _banco.Pessoa.ToList();
+        }
     }
 }

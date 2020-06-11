@@ -16,5 +16,6 @@ namespace BazarPapelaria10.Repositories
         void Excluir(int Id);
         Pessoa ObterPessoa(int Id);
         IPagedList<Pessoa> ObterTodasPessoas(int? pagina, string pesquisa);
+        List<Pessoa> ObterPessoaReport();
     }
 }

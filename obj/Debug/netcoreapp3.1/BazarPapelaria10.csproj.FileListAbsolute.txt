@@ -96,3 +96,4 @@ C:\inetpub\wwwroot\BazarPapelaria10\bin\Debug\netcoreapp3.1\AutoMapper.Extension
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.MvcApplicationPartsAssemblyInfo.cs
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.MvcApplicationPartsAssemblyInfo.cache
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Report\ClienteReport.cshtml.g.cs

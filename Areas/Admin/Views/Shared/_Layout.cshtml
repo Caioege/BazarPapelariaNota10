@@ -45,7 +45,9 @@
 </head>
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><i class="fas fa-book"></i> Bazar e Papelaria Nota 10</a>
+        <div class="brand-wrap">
+            <img class="logo" style="max-height: 42px; padding: 5px; 5px; 5px; 5px;" src=@Url.Content("/images/logobranca.png")>
+        </div>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a class="nav-link btn btn-outline-secondary" asp-action="Logout" asp-controller="Home" style="padding: 2px; 2px; 2px; 2px"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -68,13 +70,12 @@
 
                         @if (colaborador.GetColaborador() != null && colaborador.GetColaborador().Tipo == ColaboradorTipoConstant.Gerente)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Colaborador" asp-action="Index">
-                                    <span data-feather="user-check"></span>
-                                    Colaborador
-                                </a>
-                            </li>
-                        }
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Colaborador" asp-action="Index">
+                    <span data-feather="user-check"></span>
+                    Colaborador
+                </a>
+            </li>}
 
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Categoria" asp-action="Index">
@@ -104,44 +105,30 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Report" asp-action="ProdutoReport">
-                                <span data-feather="bar-chart-2"></span>
-                                Relatórios
-                            </a>
-                        </li>
 
                     </ul>
 
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Saved reports</span>
-                        <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="plus-circle"></span>
-                        </a>
+                        <span>Lista de relatórios</span>
                     </h6>
+
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" asp-controller="Report" asp-action="ProdutoReport">
                                 <span data-feather="file-text"></span>
-                                Current month
+                                Produtos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" asp-controller="Report" asp-action="ClienteReport">
                                 <span data-feather="file-text"></span>
-                                Last quarter
+                                Clientes
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" asp-controller="Home" asp-action="Painel">
                                 <span data-feather="file-text"></span>
-                                Social engagement
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Year-end sale
+                                Pedidos
                             </a>
                         </li>
                     </ul>

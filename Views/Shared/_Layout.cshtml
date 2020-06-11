@@ -1,7 +1,5 @@
 ﻿
-@{
-    var pesquisa = Context.Request.Query["pesquisa"];
-}
+@{ var pesquisa = Context.Request.Query["pesquisa"]; }
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +38,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="~/images/icone.ico">
 
-    <!-- Bootstrap core CSS -->
+    @*Bootstrap core CSS*@
     <link href="~/lib/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/pagedlist/PagedList.css" rel="stylesheet" />
     <link href="~/lib/fontawesome/all.min.css" rel="stylesheet" />
@@ -64,7 +62,8 @@
         .footer-title {
             text-align: center;
             background: rgba(8,0,41,0.6);
-            padding: 5px;
+            padding-bottom: 5px;
+            padding-top: 5px;
         }
 
         .icon-pay {
@@ -73,6 +72,12 @@
 
         .form-group {
             text-align: center;
+        }
+
+        html, container {
+            margin: 0;
+            padding: 0;
+            padding-right: 0;
         }
     </style>
 
@@ -195,10 +200,10 @@
         </nav>
     </header>
     @RenderBody()
-    <hr />
+
 
     <footer class="section-footer border-top">
-        <div class="row">
+        <div class="row-no-gutters">
             <div class="col">
                 <div class="footer-title">
                     <h5>FORMAS DE PAGAMENTO</h5>
@@ -206,7 +211,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
+            <div class="row-no-gutters">
                 <div class="col">
                     <div class="footer-content">
                         <img class="icon-pay" src="~/NovoLayout/_icon/payments/american.png" title="American Express" width="80" height="54">
@@ -220,7 +225,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row-no-gutters">
             <div class="col">
                 <div class="footer-title">
                     <h5>CONTATOS</h5>
@@ -228,25 +233,17 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
+            <div class="row-no-gutters">
                 <div class="col">
                     <div class="footer-content">
                         <p>Nosso bazar e papelaria está localizado no endereço abaixo e você entrar em contato conosco através dos contatos abaixo.</p>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
+                <div class="col col-12">
                     <div class="footer-content">
                         <ul class="list-icon">
                             <li class="footer-item"> <i class="icon fa fa-map-marker"> </i>Rua H-152, Quadra 01, Lote 22 - Setor Morada dos Pássaros - Aparecida de Goiânia</li>
                             <li class="footer-item"> <i class="icon fa fa-envelope"> </i>bazarepapelarianota10@gmail.com</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col ml-auto">
-                    <div class="footer-content">
-                        <ul class="list-icon">
                             <li class="footer-item"> <i class="icon fa fa-phone"> </i>(62) 3277-1492 (62) 99460-2792</li>
                             <li class="footer-item"> <i class="icon fa fa-clock"> </i>Seg-Sab 11:30am - 05:30pm</li>
                         </ul>
@@ -254,7 +251,7 @@
                 </div>
             </div>
         </div>
-        <section class="footer-bottom border-top row text-center">
+        <section class="footer-bottom border-top row-no-gutters text-center">
             <div class="col-lg-6">
                 <p class="mb-0">
                     <a href="#">Termos e condições</a>|
@@ -265,6 +262,7 @@
             </div>
         </section>
     </footer>
+
 
     <script async="" src="~/NovoLayout/_js/js.js"></script>
     <script src="https://kit.fontawesome.com/118d30f56a.js" crossorigin="anonymous"></script>
