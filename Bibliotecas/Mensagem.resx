@@ -135,6 +135,12 @@
   <data name="MSG_E006" xml:space="preserve">
     <value>O valor digitado não se encontra entre {1} e {2}!</value>
   </data>
+  <data name="MSG_E007" xml:space="preserve">
+    <value>Quantidade não pode ser 0! Por favor remova este item do carrinho.</value>
+  </data>
+  <data name="MSG_E008" xml:space="preserve">
+    <value>Desculpe, não temos a quantidade solicitada em nosso estoque.</value>
+  </data>
   <data name="MSG_GEN01" xml:space="preserve">
     <value>Campo obrigatório!</value>
   </data>
@@ -143,5 +149,8 @@
   </data>
   <data name="MSG_GEN03" xml:space="preserve">
     <value>Deve possuir no máximo {1} caracteres!</value>
+  </data>
+  <data name="MSG_S001" xml:space="preserve">
+    <value>Alterado com sucesso.</value>
   </data>
 </root>

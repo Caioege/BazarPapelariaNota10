@@ -55,7 +55,51 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col">
+            <label asp-for="Cor">Cor:</label>
+            <div class="input-group" mb-2>
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-palette"></i></div>
+                </div>
+                <input asp-for="Cor" class="form-control" placeholder="Cor do produto.">
+            </div>
+        </div>
+
+        <div class="col">
+            <label asp-for="Marca">Marca:</label>
+            <div class="input-group" mb-2>
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-handshake"></i></div>
+                </div>
+                <input asp-for="Marca" class="form-control" placeholder="Marca do produto.">
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col">
+            <label asp-for="Modelo">Modelo:</label>
+            <div class="input-group" mb-2>
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-receipt"></i></div>
+                </div>
+                <input asp-for="Modelo" class="form-control" placeholder="Modelo do produto.">
+            </div>
+        </div>
+
+        <div class="col">
+            <label asp-for="Material">Material:</label>
+            <div class="input-group" mb-2>
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fab fa-creative-commons-remix"></i></div>
+                </div>
+                <input asp-for="Material" class="form-control" placeholder="Material do produto.">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:15px;">
         <label asp-for="Obsprod">Observação:</label>
         <textarea asp-for="Obsprod" class="form-control"></textarea>
         <span asp-validation-for="Obsprod" class="text-danger"></span>
@@ -70,7 +114,7 @@
         }
     }
 
-    <div class="row imagens" style="margin-bottom:15px;">
+    <div class="row imagens" style="margin-bottom:15px; margin-left: auto; margin-right: auto;">
         @for (int i = 0; i < 4; i++)
         {
 

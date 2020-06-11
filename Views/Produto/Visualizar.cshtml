@@ -106,11 +106,10 @@
                             </var>
                         </div>
 
-                        <dl>
-                            <dt><i class="fas fa-sort-amount-up-alt"></i> Quantidade em estoque:</dt>
-                            <dd><p>@Model.Quantidade.ToString().Replace(",00", "")</p></dd>
-                        </dl>
                         <dl class="row">
+                            <dt class="col-sm-3">Estoque:</dt>
+                            <dd class="col-sm-9">@Model.Quantidade.ToString().Replace(",00", "")</dd>
+
                             @if (Model.Modelo != null)
                             {
                                 <dt class="col-sm-3">Modelo:</dt>
@@ -126,13 +125,13 @@
                             @if (Model.Material != null)
                             {
                                 <dt class="col-sm-3">Material:</dt>
-                                <dd class="col-sm-9">Plástico</dd>
+                                <dd class="col-sm-9">@Model.Material</dd>
                             }
 
                             @if (Model.Marca != null)
                             {
                                 <dt class="col-sm-3">Marca:</dt>
-                                <dd class="col-sm-9">Samsung</dd>
+                                <dd class="col-sm-9">@Model.Marca</dd>
                             }
 
                             <dt class="col-sm-3">Entrega:</dt>
@@ -141,7 +140,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <hr class="divider">
-                                <div class="form-group">
+                                <div class="form-group" style="margin-bottom: auto; margin-top: auto;">
                                     <label class="col-md-5 control-label" for="addCarrinho"></label>
                                     <div>
                                         <a asp-controller="CarrinhoCompra" asp-action="AdicionarItem" asp-route-id="@Model.Id" class="btn btn-success btn-lg btn-block"><i class="fas fa-shopping-cart"></i>Adicionar ao carrinho</a>

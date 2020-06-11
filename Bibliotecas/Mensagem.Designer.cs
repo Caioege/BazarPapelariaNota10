@@ -115,6 +115,24 @@ namespace BazarPapelaria10.Bibliotecas {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Quantidade não pode ser 0! Por favor remova este item do carrinho..
+        /// </summary>
+        public static string MSG_E007 {
+            get {
+                return ResourceManager.GetString("MSG_E007", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Desculpe, não temos a quantidade solicitada em nosso estoque..
+        /// </summary>
+        public static string MSG_E008 {
+            get {
+                return ResourceManager.GetString("MSG_E008", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Campo obrigatório!.
         /// </summary>
         public static string MSG_GEN01 {
@@ -138,6 +156,15 @@ namespace BazarPapelaria10.Bibliotecas {
         public static string MSG_GEN03 {
             get {
                 return ResourceManager.GetString("MSG_GEN03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Alterado com sucesso..
+        /// </summary>
+        public static string MSG_S001 {
+            get {
+                return ResourceManager.GetString("MSG_S001", resourceCulture);
             }
         }
     }

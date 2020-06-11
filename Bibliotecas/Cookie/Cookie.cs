@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BazarPapelaria10.Bibliotecas.Seguranca;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,13 @@ namespace BazarPapelaria10.Bibliotecas.Cookie
     public class Cookie
     {
 
-        IHttpContextAccessor _context;
+        private IHttpContextAccessor _context;
+        private IConfiguration _conf;
 
-        public Cookie(IHttpContextAccessor contexto)
+        public Cookie(IHttpContextAccessor contexto, IConfiguration conf)
         {
             _context = contexto;
+            _conf = conf;
         }
 
         //CRUD SESSÃO - CADASTRAR, ATUALIZAR, CONSULTAR, REMOVER 
@@ -24,7 +28,9 @@ namespace BazarPapelaria10.Bibliotecas.Cookie
             Options.IsEssential = true;
             Options.Expires = DateTime.Now.AddDays(5);
 
-            _context.HttpContext.Response.Cookies.Append(Key, Valor, Options);
+            var ValorCrypt = StringCipher.Encrypt(Valor, _conf.GetValue<string>("KeyCrypt"));
+
+            _context.HttpContext.Response.Cookies.Append(Key, ValorCrypt, Options);
         }
 
         public void Atualizar(string Key, string Valor)
@@ -44,7 +50,11 @@ namespace BazarPapelaria10.Bibliotecas.Cookie
 
         public string Consultar(string Key)
         {
-            return _context.HttpContext.Request.Cookies[Key];
+            var ValorCrypt = _context.HttpContext.Request.Cookies[Key];
+
+            var Valor =  StringCipher.Decrypt(ValorCrypt, _conf.GetValue<string>("KeyCrypt"));
+
+            return Valor;
         }
 
         public bool Existe(string Key)

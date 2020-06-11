@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using BazarPapelaria10.Bibliotecas;
 using BazarPapelaria10.Bibliotecas.CarrinhoCompra;
 using BazarPapelaria10.Models;
 using BazarPapelaria10.Models.ProdutoAgregador;
@@ -60,12 +61,25 @@ namespace BazarPapelaria10.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult AlterarQuantidade(int Id, int Quantidade)
+        [HttpGet]
+        public IActionResult AlterarQuantidade(int id, int quantidade)
         {
-            var item = new ProdutoItem() { Id = Id, QuantidadeProdutoCarrinho = Quantidade };
-            _carrinhoCompra.Atualizar(item);
+            Produto produto = _produtoRepository.ObterProduto(id);
 
-            return RedirectToAction(nameof(Index));
+            if (quantidade < 1)
+            {
+                return BadRequest(new { mensagem = Mensagem.MSG_E007 });
+            }else if (quantidade > produto.Quantidade)
+            {
+                return BadRequest(new { mensagem = Mensagem.MSG_E008 });
+            }
+            else
+            {
+                var item = new ProdutoItem() { Id = id, QuantidadeProdutoCarrinho = quantidade };
+                _carrinhoCompra.Atualizar(item);
+
+                return Ok(new { mensagem = Mensagem.MSG_S001 });
+            }
         }
 
         public IActionResult RemoverItem(int Id)

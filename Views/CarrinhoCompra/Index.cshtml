@@ -1,7 +1,7 @@
 ﻿@model List<BazarPapelaria10.Models.ProdutoAgregador.ProdutoItem>
 @{
     ViewData["Title"] = "Carrinho";
-    decimal total = 0;
+    decimal subTotal = 0;
 }
 <head>
     <title>Nota 10 - Carrinho</title>
@@ -12,7 +12,13 @@
 
         <section class="container" id="order" style="margin-top: 50px">
 
-            <h2 class="title-doc text-center">Carrinho de Compras</h2>
+            <h2 class="title-doc text-center"><i class="fas fa-shopping-cart"></i> Carrinho de Compras</h2>
+
+            <div class="alert alert-danger alert-dismissible fade show" style="display:none;" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
             <div id="code_cart">
 
@@ -36,31 +42,68 @@
                                     <tr>
                                         <td>
                                             <figure class="media">
-                                                <div class="img-wrap"><img src="/images/noimage.png" class="img-thumbnail img-sm"></div>
-                                                <figcaption class="media-body" style="margin-left:10px;">
-                                                    <h6 class="title text-truncate">@item.Nomeprod</h6>
+
+                                                @if (item.Imagens != null && item.Imagens.Count > 0)
+                                                {
+                                                    <div class="img-wrap" style="max-width:70px; max-height: 70px;"><img src="@item.Imagens.FirstOrDefault().Caminho" class="img-thumbnail img-sm"></div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="img-wrap" style="max-width:70px; max-height: 70px;"><img src="/images/noimage.png" class="img-thumbnail img-sm"></div>
+                                                }
+
+                                            <figcaption class="media-body" style="margin-left:10px;">
+                                                <h6 class="title text-truncate">@item.Nomeprod</h6>
+                                                @if (item.Marca != null)
+                                                {
                                                     <dl class="dlist-inline small">
-                                                        <dt>Size: </dt>
-                                                        <dd>XXL</dd>
+
+                                                        <dt>Marca: </dt>
+                                                        <dd>@item.Marca</dd>
+
                                                     </dl>
+                                                }
+                                                @if (item.Modelo != null)
+                                                {
                                                     <dl class="dlist-inline small">
-                                                        <dt>Color: </dt>
-                                                        <dd>Orange color</dd>
+
+                                                        <dt>Modelo: </dt>
+                                                        <dd>@item.Modelo</dd>
+
                                                     </dl>
-                                                </figcaption>
+                                                }
+                                                @if (item.Cor != null)
+                                                {
+                                                    <dl class="dlist-inline small">
+
+                                                        <dt>Cor: </dt>
+                                                        <dd>@item.Cor</dd>
+
+                                                    </dl>
+                                                }
+                                                @if (item.Material != null)
+                                                {
+                                                    <dl class="dlist-inline small">
+
+                                                        <dt>Marca: </dt>
+                                                        <dd>@item.Material</dd>
+
+                                                    </dl>
+                                                }
+                                            </figcaption>
                                             </figure>
                                         </td>
 
                                         <td>
                                             <div class="col-auto">
-                                                <div class="input-group mb-2">
+                                                <div class="input-group mb-2 custom-control-inline">
                                                     <input type="hidden" class="inputProdutoId" value="@item.Id" />
                                                     <input type="hidden" class="inputQuantidadeEstoque" value="@item.Quantidade" />
                                                     <input type="hidden" class="inputValorUnitario" value="@item.Valorprod" />
                                                     <div class="input-group-prepend">
                                                         <a href="#" class="btn btn-dark btn-car diminuir rounded"> - </a>
                                                     </div>
-                                                    <input type="text" readonly class="form-control text-center rounded inputQuantidadeProdutoCarrinho" id="inlineFormInputGroup" value="@item.QuantidadeProdutoCarrinho">
+                                                    <input type="text" readonly class="form-control text-center rounded inputQuantidadeProdutoCarrinho" value="@item.QuantidadeProdutoCarrinho">
                                                     <div class="input-group-append">
                                                         <a href="#" class="btn btn-dark btn-car aumentar rounded"> + </a>
                                                     </div>
@@ -68,16 +111,16 @@
                                             </div>
                                         </td>
 
+                                        @{
+                                            var resultado = item.Valorprod * item.QuantidadeProdutoCarrinho;
+                                            subTotal += resultado;
+                                        }
+
                                         <td>
                                             <div class="price-wrap">
-                                                <var class="price">@((item.Valorprod * item.QuantidadeProdutoCarrinho).ToString("C"))</var>
-                                                <p><small class="text-muted">(@item.Valorprod.ToString("C") cada)</small></p>
-                                            </div> <!-- price-wrap .// -->
-
-                                            @{
-                                                total += (item.Valorprod * item.QuantidadeProdutoCarrinho);
-                                            }
-
+                                                <var class="price">@(resultado.ToString("C"))</var>
+                                                <small class="text-muted">/@item.Valorprod.ToString("C") cada</small>
+                                            </div>
                                         </td>
                                         <td>
                                             <a asp-controller="CarrinhoCompra" asp-action="RemoverItem" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Remover</a>
@@ -88,14 +131,14 @@
                             </tbody>
                         </table>
 
-                    </div> <!-- card.// -->
+                    </div>
                 }
                 else
                 {
                     <div class="alert alert-gray-light" role="alert"><p>Não existem produtos no carrinho.</p></div>
                 }
 
-            </div> <!-- code-wrap.// -->
+            </div>
         </section>
         <br />
         <br />
@@ -103,24 +146,27 @@
         <section class="container">
             <div class="row">
                 <aside class="col-md-6 text-center" style="margin-right:auto; margin-left:auto;">
-                    <h4 class="subtitle-doc">
-                        <i class="fas fa-money-bill-wave"></i> Total a pagar
-                    </h4>
                     <div id="code_desc_right">
                         <div class="box">
+                            <h4 class="subtitle-doc" style="margin-bottom:15px;">
+                                <i class="fas fa-money-bill-wave"></i> Resumo
+                            </h4>
                             <dl class="dlist-align">
-                                <dt><i class="fas fa-truck-loading"></i><strong> Entrega:</strong></dt>
+                                <dt><i class="fas fa-map-marked-alt"></i><strong> Entrega:</strong></dt>
                                 <dd class="text-right">
                                     Aparecida de Goiânia e Goiânia
                                     <small class="text-muted">/frete grátis</small>
                                 </dd>
                             </dl>
-                            <dl class="dlist-align">
-                                <dt><i class="fas fa-money-check-alt"></i><strong> Total a pagar:</strong></dt>
-                                <dd class="text-right h5 b">@total.ToString("C")</dd>
+                            <dl class="dlist-align" style="margin-bottom:15px;">
+                                <dt><i class="fas fa-money-check-alt"></i><strong> Valor total:</strong></dt>
+                                <dd class="text-right h5 b subtotal">@subTotal.ToString("C")</dd>
                             </dl>
-                        </div> <!-- box.// -->
-                    </div> <!-- code-wrap.// -->
+
+                            <a href="#" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
+
+                        </div>
+                    </div>
                 </aside>
             </div>
         </section>
