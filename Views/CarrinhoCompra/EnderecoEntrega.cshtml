@@ -1,0 +1,79 @@
+﻿@{ 
+    ViewData["Title"] = "Nota 10 - Endereço de Entrega";
+}
+
+    <head>
+        <script type="text/javascript">
+            function Redirect(id) {
+                location.href = "/Pagamento?id=" + id;
+            }
+        </script>
+    </head>
+
+<div class="container">
+    <br />
+    <br />
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <!-- Listar os endereços -->
+
+            <h4 class="text-center"><i class="fas fa-street-view"></i> Endereços cadastrados:</h4>
+            <br />
+
+            <table class="table table-hover">
+                <tbody>
+                    <a href="/Pagamento?id=0">
+                        <tr>
+                            <th scope="row">
+                                <input type="radio" name="endereco" value="0" id="0-end" />
+                            </th>
+                            <td>
+                                <label for="0-end">
+                                    <strong>Nome: </strong>Endereço do Cliente.
+                                    <p>
+                                        @ViewBag.Cliente.CEP | @ViewBag.Cliente.Cidade, @ViewBag.Cliente.Bairro, @ViewBag.Cliente.Logradouro, @ViewBag.Cliente.Complemento, @ViewBag.Cliente.Numero
+                                    </p>
+                                </label>
+                            </td>
+                        </tr>
+                    </a>
+
+                        @foreach (var endereco in ViewBag.Enderecos)
+                        {
+                                <tr onclick="Redirect(@endereco.Id)">
+                                    <th scope="row">
+                                        <input type="radio" name="endereco" value="@endereco.Id" id="@endereco.Id-end" />
+                                    </th>
+                                    <td>
+                                        <label href="/Pagamento?id=@endereco.Id" for="@endereco.Id-end">
+                                            <strong>Nome: </strong>@endereco.Nome
+                                            <p>
+                                                <strong>@endereco.CEP</strong> | @endereco.Cidade, @endereco.Bairro, @endereco.Logradouro, @endereco.Complemento, @endereco.Numero
+                                            </p>
+                                        </label>
+                                    </td>
+                                </tr>
+                        }
+                </tbody>
+            </table>
+
+            <br />
+            <br />
+
+            <div class="text-center">
+                <a asp-action="CadastroEnderecoEntrega" asp-controller="Home" asp-area="Cliente" asp-route-returnUrl="@Url.Action("EnderecoEntrega", "CarrinhoCompra", new { area = "" })" class="btn btn-outline-info">Deseja que seja entregue em um novo endereço? Cadastre aqui.</a>
+            </div>
+            <br />
+            <br />
+            <div class="text-center">
+                <a asp-action="Index" asp-controller="Pagamento" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
+            </div>
+            <br />
+            <br />
+        </div>
+        <br />
+        <br /> 
+    </div>
+</div>

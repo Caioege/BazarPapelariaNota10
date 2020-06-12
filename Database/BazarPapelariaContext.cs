@@ -19,6 +19,7 @@ namespace BazarPapelaria10.Database
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Imagem> Imagens { get; set; }
         public DbSet<Pessoa> Pessoa { get; set; }
+        public DbSet<EnderecoEntrega> EnderecoEntrega { get; set; }
         public DbSet<Colaborador> Colaborador { get; set; }
     }
 }

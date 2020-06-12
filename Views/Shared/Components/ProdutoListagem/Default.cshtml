@@ -2,6 +2,7 @@
 @{
     var pesquisa = Context.Request.Query["pesquisa"];
     var ordenacao = Context.Request.Query["ordenacao"].ToString();
+    ViewData["Title"] = "Bazar e Papelaria Nota 10";
 }
 @if (Model.lista.Count > 0)
 {
@@ -21,7 +22,7 @@
                         <a asp-controller="Produto" asp-action="Visualizar" asp-route-id="@produto.Id">
                             @if (produto.Imagens != null && produto.Imagens.Count() > 0)
                             {
-                                <img class="card-img-top" src="@Url.Content(produto.Imagens.FirstOrDefault().Caminho)" alt="">
+                                <img class="card-img-top" style="width: 95%;" src="@Url.Content(produto.Imagens.FirstOrDefault().Caminho)" alt="">
                             }
                             else
                             {
@@ -30,7 +31,7 @@
                         </a>
                         <div class="card-body">
                             <h4 class="card-title text-center">
-                                @produto.ToLower(produto.Nomeprod);
+                                @produto.ToLower(produto.Nomeprod)
                             </h4>
                             <h5 class="text-center">@produto.Valorprod.ToString("C")</h5>
 

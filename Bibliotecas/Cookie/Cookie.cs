@@ -33,6 +33,11 @@ namespace BazarPapelaria10.Bibliotecas.Cookie
             _context.HttpContext.Response.Cookies.Append(Key, ValorCrypt, Options);
         }
 
+        public void AddEnderecoEntrega(int Id)
+        {
+
+        }
+
         public void Atualizar(string Key, string Valor)
         {
             if (Existe(Key))

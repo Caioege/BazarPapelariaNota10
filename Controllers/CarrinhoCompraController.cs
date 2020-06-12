@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BazarPapelaria10.Bibliotecas;
 using BazarPapelaria10.Bibliotecas.CarrinhoCompra;
+using BazarPapelaria10.Bibliotecas.Filtro;
+using BazarPapelaria10.Bibliotecas.Login;
+using BazarPapelaria10.Controllers.Base;
 using BazarPapelaria10.Models;
 using BazarPapelaria10.Models.ProdutoAgregador;
 using BazarPapelaria10.Repositories.Contracts;
@@ -12,34 +15,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BazarPapelaria10.Controllers
 {
-    public class CarrinhoCompraController : Controller
+    public class CarrinhoCompraController : BaseController
     {
-        private CarrinhoCompra _carrinhoCompra;
-        private IProdutoRepository _produtoRepository;
-        private IMapper _mapper;
+        private LoginCliente _loginCliente;
+        private IEnderecoEntregaRepository _enderecoEntregaRepository;
 
-        public CarrinhoCompraController(CarrinhoCompra carrinhoCompra, IProdutoRepository produtoRepository, IMapper mapper)
-        {
-            _carrinhoCompra = carrinhoCompra;
-            _produtoRepository = produtoRepository;
-            _mapper = mapper;
+        public CarrinhoCompraController(LoginCliente loginCliente, IEnderecoEntregaRepository enderecoEntregaRepository , CarrinhoCompra carrinhoCompra, IProdutoRepository produtoRepository, IMapper mapper) 
+            : base (carrinhoCompra,
+                  produtoRepository,
+                  mapper){
+            _loginCliente = loginCliente;
+            _enderecoEntregaRepository = enderecoEntregaRepository;
         }
 
         public IActionResult Index()
         {
-            List<ProdutoItem> produtoItemCarrinho = _carrinhoCompra.Consultar();
-
-            List<ProdutoItem> produtoItemCompleto = new List<ProdutoItem>();
-
-            foreach (var item in produtoItemCarrinho)
-            {
-                Produto produto = _produtoRepository.ObterProduto(item.Id);
-
-                ProdutoItem produtoItem = _mapper.Map<ProdutoItem>(produto);
-                produtoItem.QuantidadeProdutoCarrinho = item.QuantidadeProdutoCarrinho;
-
-                produtoItemCompleto.Add(produtoItem);
-            }
+            List<ProdutoItem> produtoItemCompleto = CarregarProdutoDB();
 
             return View(produtoItemCompleto);
         }
@@ -87,5 +78,26 @@ namespace BazarPapelaria10.Controllers
             _carrinhoCompra.Remover(new ProdutoItem() { Id = Id } );
             return RedirectToAction(nameof(Index));
         }
+
+        [ClienteAutorizacao]
+        public IActionResult EnderecoEntrega()
+        {
+            Pessoa cliente = _loginCliente.GetCliente();
+            IList<EnderecoEntrega> enderecos = _enderecoEntregaRepository.ObterTodosEnderecosEntregaCliente(cliente.Id);
+
+            ViewBag.Cliente = cliente;
+            ViewBag.Enderecos = enderecos;
+
+            return View();
+        }
+
+        [ClienteAutorizacao]
+        public IActionResult AtualizarEnderecoEntrega(int id)
+        {
+
+
+            return RedirectToAction("Index", "Pagamento", new { area = "" });
+        }
+
     }
 }

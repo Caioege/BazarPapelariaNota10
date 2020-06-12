@@ -18,16 +18,13 @@ namespace BazarPapelaria10.Controllers
 {
     public class HomeController : Controller
     {
-        private LoginCliente _loginCliente;
-        private IPessoaRepository _pessoaRepository;
+        
         private IProdutoRepository _produtoRepository;
         private BazarPapelaria10Context _banco;
 
-        public HomeController(IPessoaRepository pessoaRepository, IProdutoRepository produtoRepository, LoginCliente loginCliente)
+        public HomeController(IProdutoRepository produtoRepository)
         {
-            _pessoaRepository = pessoaRepository;
             _produtoRepository = produtoRepository;
-            _loginCliente = loginCliente;
         }
 
         [HttpGet]
@@ -43,35 +40,7 @@ namespace BazarPapelaria10.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Login([FromForm] Pessoa pessoa)
-        {
-            Pessoa cliente = _pessoaRepository.Login(pessoa.Email, pessoa.Senha);
-
-            if (cliente != null)
-            {
-                // LOGAR
-                _loginCliente.Login(cliente);
-
-                return new RedirectResult(Url.Action(nameof(Painel)));
-            }
-
-            TempData["MSG_E"] = "Email ou senha inválidos, tente novamente.";
-
-            return View();
-        }
-
-        [ClienteAutorizacaoAttribute]
-        public IActionResult Painel()
-        {
-            return new ContentResult() { Content = "Painel" };
-        }
+        
 
         public IActionResult Contato()
         {
@@ -80,29 +49,6 @@ namespace BazarPapelaria10.Controllers
 
         public IActionResult Carrinho()
         {
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult CadastroCliente()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CadastroCliente([FromForm] Pessoa pessoa)
-        {
-            if(ModelState.IsValid)
-            {
-                _pessoaRepository.Cadastrar(pessoa);
-
-                TempData["MSG_S"] = "Cadastro realizado com sucesso!";
-
-                //TODO - USUARIO, PAINEL, CARRINHO E ETC
-
-                return RedirectToAction(nameof(CadastroCliente));
-            }
-
             return View();
         }
 

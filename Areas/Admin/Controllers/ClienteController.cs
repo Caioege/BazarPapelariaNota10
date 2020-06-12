@@ -23,14 +23,14 @@ namespace BazarPapelaria10.Areas.Colaborador.Controllers
         [HttpGet]
         public IActionResult Index(int? pagina, string pesquisa)
         {
-            IPagedList<Pessoa> clientes = _pessoaRepository.ObterTodasPessoas(pagina, pesquisa);
+            IPagedList<Models.Pessoa> clientes = _pessoaRepository.ObterTodasPessoas(pagina, pesquisa);
             return View(clientes);
         }
 
         [ValidadeHttpReferer]
         public IActionResult AtivarDesativar(int Id)
         {
-            Pessoa cliente = _pessoaRepository.ObterPessoa(Id);
+            Models.Pessoa cliente = _pessoaRepository.ObterPessoa(Id);
             cliente.Ativo = (cliente.Ativo == true) ? cliente.Ativo = false : cliente.Ativo = true;
 
             _pessoaRepository.Atualizar(cliente);

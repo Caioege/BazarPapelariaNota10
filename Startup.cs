@@ -75,6 +75,7 @@ namespace BazarPapelaria10
             services.AddScoped<IImagemRepository, ImagemReporitory>();
             services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+            services.AddScoped<IEnderecoEntregaRepository, EnderecoEntregaRepository>();
 
             services.AddScoped<BazarPapelaria10.Bibliotecas.Cookie.Cookie>();
 

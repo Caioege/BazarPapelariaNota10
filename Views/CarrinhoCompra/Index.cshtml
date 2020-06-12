@@ -1,4 +1,5 @@
 ﻿@model List<BazarPapelaria10.Models.ProdutoAgregador.ProdutoItem>
+@inject BazarPapelaria10.Bibliotecas.Login.LoginCliente _loginCliente
 @{
     ViewData["Title"] = "Carrinho";
     decimal subTotal = 0;
@@ -41,56 +42,60 @@
                                 {
                                     <tr>
                                         <td>
-                                            <figure class="media">
+                                            <figure class="itemside">
 
                                                 @if (item.Imagens != null && item.Imagens.Count > 0)
                                                 {
-                                                    <div class="img-wrap" style="max-width:70px; max-height: 70px;"><img src="@item.Imagens.FirstOrDefault().Caminho" class="img-thumbnail img-sm"></div>
+                                                    <div class="img-wrap aside" style="max-width:70px; max-height: 70px;">
+                                                        <a asp-controller="Produto" asp-action="Visualizar" asp-route-id="@item.Id">
+                                                            <img src="@item.Imagens.FirstOrDefault().Caminho" class="img-thumbnail img-sm">
+                                                        </a>
+                                                    </div>
                                                 }
-                                                else
+                                                else 
                                                 {
-                                                    <div class="img-wrap" style="max-width:70px; max-height: 70px;"><img src="/images/noimage.png" class="img-thumbnail img-sm"></div>
+                                                    <div class="img-wrap aside" style="max-width:70px; max-height: 70px;"><img src="/images/noimage.png" class="img-thumbnail img-sm"></div>
                                                 }
 
-                                            <figcaption class="media-body" style="margin-left:10px;">
-                                                <h6 class="title text-truncate">@item.Nomeprod</h6>
-                                                @if (item.Marca != null)
-                                                {
-                                                    <dl class="dlist-inline small">
+                                                <figcaption class="media-body" style="margin-left:10px;">
+                                                    <h6 class="title text-truncate">@item.Nomeprod</h6>
+                                                    @if (item.Marca != null)
+                                                    {
+                                                        <dl class="dlist-inline small">
 
-                                                        <dt>Marca: </dt>
-                                                        <dd>@item.Marca</dd>
+                                                            <dt>Marca: </dt>
+                                                            <dd>@item.Marca</dd>
 
-                                                    </dl>
-                                                }
-                                                @if (item.Modelo != null)
-                                                {
-                                                    <dl class="dlist-inline small">
+                                                        </dl>
+                                                    }
+                                                    @if (item.Modelo != null)
+                                                    {
+                                                        <dl class="dlist-inline small">
 
-                                                        <dt>Modelo: </dt>
-                                                        <dd>@item.Modelo</dd>
+                                                            <dt>Modelo: </dt>
+                                                            <dd>@item.Modelo</dd>
 
-                                                    </dl>
-                                                }
-                                                @if (item.Cor != null)
-                                                {
-                                                    <dl class="dlist-inline small">
+                                                        </dl>
+                                                    }
+                                                    @if (item.Cor != null)
+                                                    {
+                                                        <dl class="dlist-inline small">
 
-                                                        <dt>Cor: </dt>
-                                                        <dd>@item.Cor</dd>
+                                                            <dt>Cor: </dt>
+                                                            <dd>@item.Cor</dd>
 
-                                                    </dl>
-                                                }
-                                                @if (item.Material != null)
-                                                {
-                                                    <dl class="dlist-inline small">
+                                                        </dl>
+                                                    }
+                                                    @if (item.Material != null)
+                                                    {
+                                                        <dl class="dlist-inline small">
 
-                                                        <dt>Marca: </dt>
-                                                        <dd>@item.Material</dd>
+                                                            <dt>Marca: </dt>
+                                                            <dd>@item.Material</dd>
 
-                                                    </dl>
-                                                }
-                                            </figcaption>
+                                                        </dl>
+                                                    }
+                                                </figcaption>
                                             </figure>
                                         </td>
 
@@ -122,7 +127,7 @@
                                                 <small class="text-muted">/@item.Valorprod.ToString("C") cada</small>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td> 
                                             <a asp-controller="CarrinhoCompra" asp-action="RemoverItem" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Remover</a>
                                         </td>
                                     </tr>
@@ -163,7 +168,14 @@
                                 <dd class="text-right h5 b subtotal">@subTotal.ToString("C")</dd>
                             </dl>
 
-                            <a href="#" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
+                            @if (_loginCliente.GetCliente() == null)
+                            {
+                                <a asp-controller="Home" asp-action="Login" asp-area="Cliente" asp-route-returnUrl="@Url.Action("EnderecoEntrega", "CarrinhoCompra", new { area = "" })" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
+                            }
+                            else
+                            {
+                                <a asp-controller="CarrinhoCompra" asp-action="EnderecoEntrega" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
+                            }
 
                         </div>
                     </div>
