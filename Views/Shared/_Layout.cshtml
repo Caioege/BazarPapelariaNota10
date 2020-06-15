@@ -124,7 +124,7 @@
                     </div>
                     <div class="col-lg-5 col-xl-4 col-sm-12">
                         <div class="widgets-wrap float-md-right">
-                            <a asp-controller="CarrinhoCompra" asp-action="Index" class="widget-header mr-2">
+                            <a asp-controller="CarrinhoCompra" asp-action="Index" asp-area="" class="widget-header mr-2">
                                 <div class="icon">
                                     <i class="icon-sm rounded-circle border fa fa-shopping-cart"></i>
                                 </div>
@@ -205,21 +205,21 @@
                             <a class="nav-link pl-0" href="#"> <strong>Todas as categorias</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Produto" value="4" asp-action="ListagemCategoria">Papelaria</a>
+                            <a class="nav-link" href="#" value="4">Papelaria</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="ListagemCategoria">Escritório</a>
+                            <a class="nav-link" href="#">Escritório</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="ListagemCategoria">Doméstico</a>
+                            <a class="nav-link" href="#">Doméstico</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Outros</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Home" asp-action="ListagemCategoria">Artigos para piscina</a>
-                                <a class="dropdown-item" asp-controller="Home" asp-action="ListagemCategoria">Brinquedos</a>
-                                <a class="dropdown-item" asp-controller="Home" asp-action="ListagemCategoria">Armarinhos</a>
+                                <a class="dropdown-item" href="#">Artigos para piscina</a>
+                                <a class="dropdown-item" href="#">Brinquedos</a>
+                                <a class="dropdown-item" href="#">Armarinhos</a>
                             </div>
                         </li>
                     </ul>
@@ -256,7 +256,7 @@
         <div class="row-no-gutters">
             <div class="col">
                 <div class="footer-title">
-                    <a asp-action="Contato" asp-controller="Home">
+                    <a asp-action="Contato" asp-controller="Home" asp-area="">
                         <h5>CONTATOS</h5>
                     </a>
                 </div>
