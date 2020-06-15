@@ -22,27 +22,37 @@
             <h4 class="text-center"><i class="fas fa-street-view"></i> Endereços cadastrados:</h4>
             <br />
 
-            <table class="table table-hover">
-                <tbody>
+            @if (ViewBag.Enderecos != null)
+            {
+                <table class="table table-hover">
+                    <tbody>
 
-                    @foreach (var endereco in ViewBag.Enderecos)
-                    {
-                        <tr onclick="Redirect(@endereco.Id)">
-                            <th scope="row">
-                                <input type="radio" name="endereco" value="@endereco.Id" />
-                            </th>
-                            <td>
-                                <label for="@endereco.Id-end">
-                                    <strong>Nome: </strong>@endereco.Nome
-                                    <p>
-                                        <strong>@endereco.CEP</strong> | @endereco.Cidade, @endereco.Bairro, @endereco.Logradouro, @endereco.Complemento, @endereco.Numero
-                                    </p>
-                                </label>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                        @foreach (var endereco in ViewBag.Enderecos)
+                        {
+
+                            <tr onclick="Redirect(@endereco.Id)">
+                                <th scope="row">
+                                    <input type="radio" name="endereco" value="@endereco.Id" />
+                                </th>
+                                <td>
+                                    <label for="@endereco.Id-end">
+                                        <strong>Nome: </strong>@endereco.Nome
+                                        <p>
+                                            <strong>@endereco.CEP</strong> | @endereco.Cidade, @endereco.Bairro, @endereco.Logradouro, @endereco.Complemento, @endereco.Numero
+                                        </p>
+                                    </label>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-dark alert-dismissible">
+                    <strong>Sem endereços cadastrados para entrega, por favor adicione pelo menos um.</strong>
+                </div>
+            }
 
             <br />
             <br />
@@ -53,8 +63,8 @@
             <br />
             <br />
             @*<div class="text-center">
-                    <a asp-action="Index" asp-controller="Pagamento" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
-                </div>*@
+            <a asp-action="Index" asp-controller="Pagamento" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
+        </div>*@
             <br />
             <br />
         </div>

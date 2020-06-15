@@ -55,9 +55,12 @@
                                 <td>
                                     @pedido.ValorTotal.ToString("C")
                                 </td>
-                                <td>
-                                    @pedido.Status
-                                </td>
+                                @if (pedido.Status == 0)
+                                {
+                                    <td>
+                                        Solicitado
+                                    </td>
+                                }
                                 <td>
                                     <a class="btn btn-outline-info" asp-action="Visualizar" asp-route-id="@pedido.Id">Visualizar</a>
                                 </td>

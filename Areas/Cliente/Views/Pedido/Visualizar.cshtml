@@ -1,4 +1,4 @@
-﻿@model BazarPapelaria10.Models.PedidoAgregador.PedidoAgregador
+﻿@model BazarPapelaria10.Models.PedidoAgregador.Agregador
 @{
     ViewData["Title"] = "Nota 10 - Visualizar";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,14 +14,22 @@
             <h3>Dados pedido</h3>
             <table class="table table-bordered">
                 <tr>
-                    <td colspan="2"><strong>Situação do pedido:</strong> @Model.Status</td>
+                    @if (Model.pedido.Status == 0)
+                    {
+                        <td colspan="2"><strong>Situação do pedido: </strong>Solicitado</td>
+                    }
+                    else
+                    {
+                        <td colspan="2"><strong>Situação do pedido: </strong>Não definido</td>
+                    }
 
                 </tr>
                 <tr>
-                    <td><strong>Cliente:</strong></td>
+                    <td><strong>Cliente: </strong>@Model.cliente.Nome</td>
+                    <td><strong>Data de Nascimento: </strong>@Model.cliente.Nascimento.ToShortDateString()</td>
                 </tr>
                 <tr>
-                    @if (Model.Pagamento == 0)
+                    @if (Model.pedido.Pagamento == 0)
                     {
                         <td><strong>Forma de pagamento: </strong>Na entrega.</td>
                     }
@@ -37,7 +45,7 @@
             <table class="table table-bordered">
                 <tr>
                     <td colspan="4">
-                        <strong>Endereço de entrega: </strong>
+                        <strong>Endereço de entrega: </strong>@Model.enderecos.CEP | @Model.enderecos.Cidade, @Model.enderecos.Bairro, @Model.enderecos.Logradouro, @Model.enderecos.Complemento, @Model.enderecos.Numero
                     </td>
                 </tr>
             </table>
@@ -51,13 +59,13 @@
                     <th>TOTAL</th>
                 </tr>
 
-                @foreach (var produto in Model.produtos)
+                @foreach (var produto in Model.itens)
                 {
                     <tr>
-                        <td>@produto.QuantidadeProdutoCarrinho</td>
-                        <td>@produto.Nomeprod</td>
-                        <td>@produto.Valorprod.ToString("C")</td>
-                        <td>@((produto.Valorprod * produto.QuantidadeProdutoCarrinho).ToString("C"))</td>
+                        <td>@produto.Quantidade</td>
+                        <td>@produto.Produto.Nomeprod</td>
+                        <td>@produto.ValorItemCompra.ToString("C")</td>
+                        <td>@((produto.ValorItemCompra * produto.Quantidade).ToString("C"))</td>
                     </tr>
                 }
             </table>

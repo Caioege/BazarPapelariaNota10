@@ -1,4 +1,5 @@
-﻿using BazarPapelaria10.Database;
+﻿using BazarPapelaria10.Bibliotecas.Login;
+using BazarPapelaria10.Database;
 using BazarPapelaria10.Models;
 using BazarPapelaria10.Models.PedidoAgregador;
 using BazarPapelaria10.Models.ProdutoAgregador;
@@ -15,12 +16,14 @@ namespace BazarPapelaria10.Repositories.Contracts
     public class PedidoRepository : IPedidoRepository
     {
         private IConfiguration _conf;
+        private LoginCliente _loginCliente;
         private BazarPapelaria10Context _banco;
 
-        public PedidoRepository(BazarPapelaria10Context banco, IConfiguration configuration)
+        public PedidoRepository(BazarPapelaria10Context banco, IConfiguration configuration, LoginCliente loginCliente)
         {
             _banco = banco;
             _conf = configuration;
+            _loginCliente = loginCliente;
         }
 
         #region PEDIDO
@@ -53,14 +56,15 @@ namespace BazarPapelaria10.Repositories.Contracts
             return _banco.Pedido.Include(a => a.Pessoa).Where(a => a.Id == Id).FirstOrDefault();
         }
 
-        public PedidoAgregador ObterPedidoPA(int Id)
+        public Agregador VisualizarPedido(int Id)
         {
-            //int numeroPagina = pagina ?? 1;
-            PedidoAgregador pedido = new PedidoAgregador();
+            Agregador agregador = new Agregador();
+            agregador.pedido = _banco.Pedido.Include(a => a.Pessoa).FirstOrDefault();
+            agregador.cliente = _banco.Pessoa.Where(a => a.Id == agregador.pedido.ClienteId).FirstOrDefault();
+            agregador.enderecos = _banco.EnderecoEntrega.Where(a => a.Id == agregador.pedido.EnderecoEntregaId).FirstOrDefault();
+            agregador.itens = _banco.PedidoItem.Include(a => a.Produto).Where(a => a.PedidoId == agregador.pedido.Id).ToList();
 
-            //var pedido = _banco.Pedido.Include(a => a.Pessoa).Where(a => a.ClienteId == clienteId).ToPagedList<Pedido>(numeroPagina, _conf.GetValue<int>("RegistrosPorPagina"));
-
-            return pedido;
+            return agregador;
         }
 
         public IPagedList<Pedido> ObterTodosPedidos(int? pagina, int clienteId)
@@ -68,6 +72,13 @@ namespace BazarPapelaria10.Repositories.Contracts
             int numeroPagina = pagina ?? 1;
 
             return _banco.Pedido.Include(a => a.Pessoa).Where(a => a.ClienteId == clienteId).ToPagedList<Pedido>(numeroPagina, _conf.GetValue<int>("RegistrosPorPagina"));
+        }
+
+        public IPagedList<Pedido> ObterTodosPedidos(int? pagina)
+        {
+            int numeroPagina = pagina ?? 1;
+
+            return _banco.Pedido.Include(a => a.Pessoa).ToPagedList<Pedido>(numeroPagina, _conf.GetValue<int>("RegistrosPorPagina"));
         }
 
         public IEnumerable<Pedido> ObterTodosPedidos()

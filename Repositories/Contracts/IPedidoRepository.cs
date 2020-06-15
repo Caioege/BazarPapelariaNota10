@@ -15,9 +15,10 @@ namespace BazarPapelaria10.Repositories.Contracts
         void Atualizar(Pedido pedido);
         void Excluir(int Id);
         Pedido ObterPedido(int Id);
-        PedidoAgregador ObterPedidoPA(int Id);
+        Agregador VisualizarPedido(int Id);
         IEnumerable<Pedido> ObterTodosPedidos();
         IPagedList<Pedido> ObterTodosPedidos(int? pagina, int clienteId);
+        IPagedList<Pedido> ObterTodosPedidos(int? pagina);
 
         void Cadastrar(PedidoItem pedidoItem);
         void Cadastrar(List<PedidoItem> pedidoItem, int PedidoId);

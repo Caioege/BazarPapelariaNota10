@@ -37,9 +37,9 @@ namespace BazarPapelaria10.Areas.Cliente.Controllers
         {
             Models.Pessoa cliente = _loginCliente.GetCliente();
 
-            var pedido = _pedidoRepository.ObterPedidoPA(Id);
+            var pedido = _pedidoRepository.VisualizarPedido(Id);
             
-            if (pedido.ClienteId != cliente.Id)
+            if (pedido.pedido.ClienteId != cliente.Id)
             {
                 return new ContentResult() { Content = "Acesso Negado!" };
             }
