@@ -1,4 +1,4 @@
-﻿@model List<BazarPapelaria10.Models.ProdutoAgregador.ProdutoItem>
+﻿@model BazarPapelaria10.Models.PedidoAgregador.PedidoAgregador;
 @{
     ViewData["Title"] = "Nota 10 - Pagamento";
     decimal subTotal = 0;
@@ -8,179 +8,165 @@
 <div class="container">
     <br />
     <br />
-    <div class="row">
+    <form method="post" asp-action="Index" asp-controller="Pagamento">
+        <div class="row">
+            <div class="form-row">
+                <div class="col-md-6">
 
-        <aside class="col-sm-6">
+                    <h4 class="subtitle-doc text-center">
+                        <i class="fas fa-shopping-basket"></i> Detalhes da compra
+                    </h4>
+                    <div id="code_payment">
 
-            <h4 class="subtitle-doc text-center">
-                <i class="fas fa-shopping-basket"></i> Detalhes da compra
-            </h4>
-            <div id="code_payment">
+                        <article class="card">
+                            <div class="card-body p-5">
+                                <div id="code_itemside_img2">
+                                    <div class="box items-bordered-wrap">
 
-                <article class="card">
-                    <div class="card-body p-5">
-                        <div id="code_itemside_img2">
-                            <div class="box items-bordered-wrap">
-
-                                @foreach (var item in Model)
-                                {
-                                    <figure class="itemside">
-
-                                        @if (item.Imagens != null && item.Imagens.Count > 0)
+                                        @foreach (var item in Model.produtos)
                                         {
-                                            <div class="aside">
-                                                <a asp-controller="Produto" asp-action="Visualizar" asp-route-id="@item.Id">
-                                                    <img src="@item.Imagens.FirstOrDefault().Caminho" class="img-sm">
-                                                </a>
-                                            </div>
+                                            <figure class="itemside">
+
+                                                @if (item.Imagens != null && item.Imagens.Count > 0)
+                                                {
+                                                    <div class="aside">
+                                                        <a asp-controller="Produto" asp-action="Visualizar" asp-route-id="@item.Id">
+                                                            <img src="@item.Imagens.FirstOrDefault().Caminho" class="img-sm">
+                                                        </a>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="aside"><img src="/images/noimage.png" class="img-sm"></div>
+                                                }
+
+                                                <figcaption class="text-wrap align-self-center" style="margin-left: 8px;">
+
+                                                    @{
+                                                        var resultado = item.Valorprod * item.QuantidadeProdutoCarrinho;
+                                                        subTotal += resultado;
+                                                    }
+
+                                                    <h6 class="title"><strong>@item.Nomeprod</strong></h6>
+                                                    <div class="price-wrap">
+                                                        <span class="price-new">Quantidade: @item.QuantidadeProdutoCarrinho</span>
+                                                        <br />
+                                                        <var class="price-new">@(resultado.ToString("C"))</var>
+                                                        <small class="text-muted">/@item.Valorprod.ToString("C") cada</small>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
                                         }
-                                        else
-                                        {
-                                            <div class="aside"><img src="/images/noimage.png" class="img-sm"></div>
-                                        }
 
-                                    <figcaption class="text-wrap align-self-center" style="margin-left: 8px;">
+                                    </div>
 
-                                        @{
-                                            var resultado = item.Valorprod * item.QuantidadeProdutoCarrinho;
-                                            subTotal += resultado;
-                                        }
+                                    <div class="box">
+                                        <h4 class="subtitle-doc text-center" style="margin-bottom:15px;">
+                                            <i class="fas fa-money-bill-wave"></i> Resumo
+                                        </h4>
+                                        <dl class="dlist-align">
+                                            <dt><i class="fas fa-map-marked-alt"></i><strong> Entrega:</strong></dt>
+                                            <dd class="text-right">
+                                                Aparecida de Goiânia e Goiânia
+                                                <small class="text-muted">/frete grátis</small>
+                                            </dd>
+                                        </dl>
 
-                                        <h6 class="title"><strong>@item.Nomeprod</strong></h6>
-                                        <div class="price-wrap">
-                                            <span class="price-new">Quantidade: @item.QuantidadeProdutoCarrinho</span>
-                                            <br />
-                                            <var class="price-new">@(resultado.ToString("C"))</var>
-                                            <small class="text-muted">/@item.Valorprod.ToString("C") cada</small> 
-                                        </div>
-                                    </figcaption>
-                                    </figure>
-                                }
+                                        <dl class="dlist-align" style="margin-bottom:15px;">
+                                            <dt><i class="fas fa-money-check-alt"></i><strong> Valor total:</strong></dt>
+                                            <dd class="text-right h5 b subtotal">@subTotal.ToString("C")</dd>
+                                        </dl>
+                                    </div>
 
+                                </div>
                             </div>
+                        </article>
 
-                            <div class="box">
-                                <h4 class="subtitle-doc text-center" style="margin-bottom:15px;">
-                                    <i class="fas fa-money-bill-wave"></i> Resumo
-                                </h4>
-                                <dl class="dlist-align">
-                                    <dt><i class="fas fa-map-marked-alt"></i><strong> Entrega:</strong></dt>
-                                    <dd class="text-right">
-                                        Aparecida de Goiânia e Goiânia
-                                        <small class="text-muted">/frete grátis</small>
-                                    </dd>
-                                </dl>
-
-                                <dl class="dlist-align" style="margin-bottom:15px;">
-                                    <dt><i class="fas fa-money-check-alt"></i><strong> Valor total:</strong></dt>
-                                    <dd class="text-right h5 b subtotal">@subTotal.ToString("C")</dd>
-                                </dl>
-                            </div>
-
-                        </div>
                     </div>
-                </article>
 
-            </div>
+                </div>
+                <div class="col-md-6">
 
-        </aside>
-        <aside class="col-sm-6">
+                    <h4 class="subtitle-doc text-center">
+                        <i class="fas fa-money-bill-wave"></i> Pagamento
+                    </h4>
+                    <div id="code_payment2">
 
-            <h4 class="subtitle-doc text-center">
-                <i class="fas fa-money-bill-wave"></i> Pagamento
-            </h4>
-            <div id="code_payment2">
+                        <article class="card">
+                            <div class="card-body p-5">
 
-                <article class="card">
-                    <div class="card-body p-5">
+                                <ul class="nav bg radius nav-pills nav-fill mb-3" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="pill" href="#nav-tab-pagamento">
+                                            Na entrega do pedido ou por transferência bancária
+                                        </a>
+                                    </li>
+                                </ul>
 
-                        <ul class="nav bg radius nav-pills nav-fill mb-3" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
-                                    <i class="fa fa-credit-card"></i> Cartão de Crédito
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="pill" href="#nav-tab-paypal">
-                                    <i class="fas fa-barcode"></i> Boleto
-                                </a>
-                            </li>
-                        </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="nav-tab-pagamento">
+                                        <p>Os produtos comprados aqui na loja podem ser pagos no ato da entrega, com cartão (crédito e débito), dinheiro ou pagos ainda através de transferência bancária.</p>
+                                        <br />
+                                        <p>Qual será a forma de pagamento?</p>
 
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="nav-tab-card">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label for="username">Nome Completo (conforme no cartão)</label>
-                                        <input type="text" class="form-control" name="username" placeholder=""
-                                               required="">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="cardNumber">Número do Cartão</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="cardNumber"
-                                                   placeholder="">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text text-muted">
-                                                    <i class="fab fa-cc-visa"></i> &nbsp; <i class="fab fa-cc-amex"></i>
-                                                    &nbsp;
-                                                    <i class="fab fa-cc-mastercard"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <label><span class="hidden-xs">Validade</span> </label>
-                                                <div class="input-group">
-                                                    <input type="number" class="form-control" placeholder="MM"
-                                                           name="">
-                                                    <input type="number" class="form-control" placeholder="AA"
-                                                           name="">
+                                        <div class="select">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input asp-for="Pagamento" type="radio" aria-label="" value="0">
+                                                    </div>
                                                 </div>
+                                                <input type="text" class="form-control" aria-label="Text input with radio button" value="No ato da entrega." readonly>
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input asp-for="Pagamento" type="radio" aria-label="" value="1">
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Text input with radio button" value="Por transferência" readonly>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label data-toggle="tooltip" title="" data-original-title="Código de 3 digítos na parte de trás do cartão.">
-                                                    CVV
-                                                    <i class="fa fa-question-circle"></i>
-                                                </label>
-                                                <input type="number" class="form-control" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="subscribe btn btn-success btn-block" type="button">
-                                        Confirmar
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="nav-tab-paypal">
-                                <p>Boleto, a maneira mais fácil de efetuar seu pagamento!</p>
-                                <p>
-                                    <button type="button" class="btn btn-primary">
-                                        <i class="fas fa-print"></i>
-                                        Imprimir boleto
-                                    </button>
-                                </p>
-                                <p>
-                                    <strong>Nota:</strong> O pagamento por boleto pode demorar algum tempo até ser confirmado.
-                                </p>
-                            </div>
 
-                        </div>
+                                        <br />
+
+                                        <input type="hidden" value="@enderecoEntregaId" name="EnderecoEntregaId" />
+                                        <input type="hidden" value="@subTotal" name="ValorTotal" />
+
+                                        
+
+                                        <p style="margin-left:auto; margin-right:auto">
+                                            @if (subTotal > 0)
+                                            {
+                                                <button type="submit" class="btn btn-outline-success">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    Finalizar Compra
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button type="button" disabled class="btn btn-outline-success">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    Finalizar Compra
+                                                </button>
+                                            }
+                                        </p>
+                                        <p>
+                                            <strong>Nota:</strong> A nota fiscal do serviço será encaminhada para o e-mail cadastrado no sistema. Se selecionado pagamento por transferência, os dados serão enviados juntamente com a NF.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </article>
 
                     </div>
-                </article>
 
+                </div>
             </div>
-
-        </aside>
-
-    </div>
+        </div>
+    </form>
     <br />
     <br />
 </div>

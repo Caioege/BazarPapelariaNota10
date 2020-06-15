@@ -174,3 +174,6 @@ C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.Mvc
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\BazarPapelaria10.MvcApplicationPartsAssemblyInfo.cache
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\Razor\Areas\Cliente\Views\Home\CadastroEnderecoEntrega.cshtml.g.cs
 C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\Razor\Views\CarrinhoCompra\EnderecoEntrega.cshtml.g.cs
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Pedido\Index.cshtml.g.cs
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\Razor\Areas\Cliente\Views\Pedido\Index.cshtml.g.cs
+C:\inetpub\wwwroot\BazarPapelaria10\obj\Debug\netcoreapp3.1\Razor\Areas\Cliente\Views\Pedido\Visualizar.cshtml.g.cs

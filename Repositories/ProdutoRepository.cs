@@ -14,10 +14,10 @@ namespace BazarPapelaria10.Repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        IConfiguration _conf;
-        BazarPapelaria10Context _banco;
+        private IConfiguration _conf;
+        private BazarPapelaria10Context _banco;
 
-        public ProdutoRepository(BazarPapelaria10Context banco, IConfiguration configuration)
+    public ProdutoRepository(BazarPapelaria10Context banco, IConfiguration configuration)
         {
             _banco = banco;
             _conf = configuration;
@@ -37,6 +37,7 @@ namespace BazarPapelaria10.Repositories
             produto.Dtalteracao = System.DateTime.Now;
             _banco.Update(produto);
             _banco.SaveChanges();
+
         }
 
         public void Excluir(int Id)

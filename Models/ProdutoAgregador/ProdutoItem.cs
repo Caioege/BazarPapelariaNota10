@@ -9,6 +9,5 @@ namespace BazarPapelaria10.Models.ProdutoAgregador
     {
         //QUANTITADE DE PRODUTOS NO CARRINHO
         public int QuantidadeProdutoCarrinho { get; set; }
-        public int IdEntrega { get; set; }
     }
 }

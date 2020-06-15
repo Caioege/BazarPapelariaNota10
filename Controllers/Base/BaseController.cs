@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using BazarPapelaria10.Bibliotecas.CarrinhoCompra;
+using BazarPapelaria10.Bibliotecas.Login;
 using BazarPapelaria10.Models.ProdutoAgregador;
 using BazarPapelaria10.Repositories.Contracts;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +18,10 @@ namespace BazarPapelaria10.Controllers.Base
         protected IProdutoRepository _produtoRepository;
         protected IMapper _mapper;
 
-        public BaseController(CarrinhoCompra carrinhoCompra, IProdutoRepository produtoRepository, IMapper mapper)
+        public BaseController(
+            CarrinhoCompra carrinhoCompra,
+            IProdutoRepository produtoRepository,
+            IMapper mapper)
         {
             _carrinhoCompra = carrinhoCompra;
             _produtoRepository = produtoRepository;

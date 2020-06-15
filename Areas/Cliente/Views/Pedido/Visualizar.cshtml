@@ -1,0 +1,68 @@
+﻿@model BazarPapelaria10.Models.PedidoAgregador.PedidoAgregador
+@{
+    ViewData["Title"] = "Nota 10 - Visualizar";
+}
+
+<br />
+<br />
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h3>Dados pedido</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td colspan="2"><strong>Situação do pedido:</strong> @Model.Status</td>
+
+                </tr>
+                <tr>
+                    <td><strong>Cliente:</strong></td>
+                </tr>
+                <tr>
+                    @if (Model.Pagamento == 0)
+                    {
+                        <td><strong>Forma de pagamento: </strong>Na entrega.</td>
+                    }
+                    else
+                    {
+                        <td><strong>Forma de pagamento: </strong>Por transferência bancária.</td>
+                    }
+                </tr>
+            </table>
+
+
+            <h3>Entrega</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td colspan="4">
+                        <strong>Endereço de entrega: </strong>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Lista de produtos</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Quantidade</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>TOTAL</th>
+                </tr>
+
+                @foreach (var produto in Model.produtos)
+                {
+                    <tr>
+                        <td>@produto.QuantidadeProdutoCarrinho</td>
+                        <td>@produto.Nomeprod</td>
+                        <td>@produto.Valorprod.ToString("C")</td>
+                        <td>@((produto.Valorprod * produto.QuantidadeProdutoCarrinho).ToString("C"))</td>
+                    </tr>
+                }
+            </table>
+
+            <br />
+            <br />
+        </div>
+    </div>
+</div>

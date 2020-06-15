@@ -146,7 +146,8 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" asp-action="Painel" asp-controller="Home" asp-area="Cliente">Meu Painel</a>
+                                        <a class="dropdown-item" asp-action="Index" asp-controller="Pedido" asp-area="Cliente">Meus Pedidos</a>
+                                        <a class="dropdown-item" asp-action="Sair" asp-controller="Home" asp-area="Cliente">Sair</a>
                                     </div>
                                 </div>
                             }
@@ -230,7 +231,7 @@
 
 
     <footer class="section-footer border-top">
-        <div class="row-no-gutters">
+        @*<div class="row-no-gutters">
             <div class="col">
                 <div class="footer-title">
                     <h5>FORMAS DE PAGAMENTO</h5>
@@ -251,20 +252,19 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="row-no-gutters">
             <div class="col">
                 <div class="footer-title">
-                    <h5>CONTATOS</h5>
+                    <a asp-action="Contato" asp-controller="Home">
+                        <h5>CONTATOS</h5>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row-no-gutters">
                 <div class="col">
-                    <div class="footer-content">
-                        <p>Nosso bazar e papelaria está localizado no endereço abaixo e você entrar em contato conosco através dos contatos abaixo.</p>
-                    </div>
                 </div>
                 <div class="col col-12">
                     <div class="footer-content">
@@ -278,16 +278,6 @@
                 </div>
             </div>
         </div>
-        <section class="footer-bottom border-top row-no-gutters text-center">
-            <div class="col-lg-6">
-                <p class="mb-0">
-                    <a href="#">Termos e condições</a>|
-                    <a href="#">Privacidade</a>|
-                    <a href="#">Cookies</a>|
-                    <a asp-action="Contato" asp-controller="Home">Sobre nós</a>
-                </p>
-            </div>
-        </section>
     </footer>
 
 

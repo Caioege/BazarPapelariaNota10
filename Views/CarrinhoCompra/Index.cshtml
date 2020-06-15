@@ -15,6 +15,14 @@
 
             <h2 class="title-doc text-center"><i class="fas fa-shopping-cart"></i> Carrinho de Compras</h2>
 
+            @if (TempData["MSG_S"] != null)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    @TempData["MSG_S"]
+                </div>
+            }
+
             <div class="alert alert-danger alert-dismissible fade show" style="display:none;" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -52,7 +60,7 @@
                                                         </a>
                                                     </div>
                                                 }
-                                                else 
+                                                else
                                                 {
                                                     <div class="img-wrap aside" style="max-width:70px; max-height: 70px;"><img src="/images/noimage.png" class="img-thumbnail img-sm"></div>
                                                 }
@@ -127,7 +135,7 @@
                                                 <small class="text-muted">/@item.Valorprod.ToString("C") cada</small>
                                             </div>
                                         </td>
-                                        <td> 
+                                        <td>
                                             <a asp-controller="CarrinhoCompra" asp-action="RemoverItem" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Remover</a>
                                         </td>
                                     </tr>

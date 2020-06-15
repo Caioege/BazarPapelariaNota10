@@ -1,0 +1,89 @@
+﻿@model X.PagedList.IPagedList<BazarPapelaria10.Models.PedidoAgregador.PedidoAgregador>
+@{
+    ViewData["Title"] = "Nota 10 - Pedidos";
+}
+
+<body>
+    <br />
+    <br />
+
+    <h2><i class="fas fa-th-list"></i> Pedidos</h2>
+
+    <div class="container">
+
+        @if (Model.Count > 0)
+        {
+            @if (TempData["MSG_S"] != null)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    @TempData["MSG_S"]
+                </div>
+            }
+
+            <a asp-action="Cadastrar" class="btn btn-outline-primary" style="margin-top:15px; margin-bottom:15px;"><i class="fas fa-plus-square"></i><span> Cadastrar</span></a>
+            <div class="table-responsive rounded" style="margin-top:20px;">
+                <table class="table table-hover table-striped table-bordered ">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nº Pedido</th>
+                            <th scope="col">Data Compra</th>
+                            <th scope="col">Pagamento</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">Situação</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var pedido in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @pedido.Id
+                                </td>
+                                <td>
+                                    @pedido.DtCriacao.ToShortDateString()
+                                </td>
+
+                                @if (pedido.Pagamento == 0)
+                                {
+                                    <td>
+                                        No ato
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        TED
+                                    </td>
+                                }
+
+                                <td>
+                                    @pedido.ValorTotal.ToString("C")
+                                </td>
+                                <td>
+                                    @pedido.Status
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-info" asp-action="Visualizar" asp-route-id="@pedido.Id">Visualizar</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            @Html.PagedListPager((IPagedList)Model, pagina => Url.Action("Index", new { pagina }))
+        }
+        else
+        {
+            <a asp-action="Cadastrar" class="btn btn-outline-primary" style="margin-top:15px; margin-bottom:15px;"><i class="fas fa-plus-square"></i><span> Cadastrar</span></a>
+
+            <div class="alert alert-dark alert-dismissible">
+                <strong>Nenhum colaborador cadastrado!</strong>
+            </div>
+        }
+    </div>
+
+</body>

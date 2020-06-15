@@ -13,49 +13,42 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
-using BazarPapelaria10;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
-using BazarPapelaria10.Models;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 3 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
-using BazarPapelaria10.Models.ProdutoAgregador;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
 using X.PagedList.Mvc.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
+#line 4 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
 using X.PagedList;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+#line 5 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models.Constants;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 7 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\_ViewImports.cshtml"
-using BazarPapelaria10.Models.ViewModels;
+using BazarPapelaria10.Models.ProdutoAgregador;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7ab515bb9ec0b6ea9eedddabb25dcfd861f6c864", @"/Areas/Cliente/Views/Home/Login.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c030953df67c643875230b79b7642293c8c6fefe", @"/Areas/Cliente/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"952fea91d92cf28967ffc5d1683418cfab8595bd", @"/Areas/Cliente/Views/_ViewImports.cshtml")]
     public class Areas_Cliente_Views_Home_Login : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BazarPapelaria10.Models.Pessoa>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("form-control text-center"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -105,7 +98,7 @@ using BazarPapelaria10.Models.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c8647777", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c8647595", async() => {
                 WriteLiteral("\r\n    <title>Nota 10 - Login</title>\r\n");
             }
             );
@@ -119,7 +112,7 @@ using BazarPapelaria10.Models.ViewModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c8648781", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c8648599", async() => {
                 WriteLiteral(@"
     <main role=""main"">
         <br />
@@ -131,7 +124,7 @@ using BazarPapelaria10.Models.ViewModels;
                         <article class=""card-body"">
                             <h4 class=""card-title mb-4 mt-1 text-left"">Login</h4>
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c8649482", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c8649300", async() => {
                     WriteLiteral("\r\n");
 #nullable restore
 #line 20 "C:\inetpub\wwwroot\BazarPapelaria10\Areas\Cliente\Views\Home\Login.cshtml"
@@ -158,7 +151,7 @@ using BazarPapelaria10.Models.ViewModels;
 #line hidden
 #nullable disable
                     WriteLiteral("                                <div class=\"form-group\">\r\n                                    <label>E-mail:</label>\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c86411120", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c86410938", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -183,7 +176,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                </div> <!-- form-group// -->\r\n                                <div class=\"form-group\">\r\n                                    <label>Senha:</label>\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c86413285", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c86413103", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -215,7 +208,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
 
                                 <div class=""form-group"">
                                     ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c86415623", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ab515bb9ec0b6ea9eedddabb25dcfd861f6c86415441", async() => {
                         WriteLiteral("Não possui uma conta? Cadastre-se aqui.");
                     }
                     );

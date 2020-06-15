@@ -34,28 +34,35 @@ using BazarPapelaria10.Models.ProdutoAgregador;
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
-using X.PagedList.Mvc.Core;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
-using X.PagedList;
+#line 4 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models.PedidoAgregador;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 7 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using X.PagedList.Mvc.Core;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using X.PagedList;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
 using BazarPapelaria10.Models.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6db3efad0e713dc681e54d9563457c6765838933", @"/Views/Shared/Components/ProdutoListagem/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c030953df67c643875230b79b7642293c8c6fefe", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d7a6f528ed2d8d4d17171bda305e0fc075ae576c", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_ProdutoListagem_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ProdutoListagemViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("id", new global::Microsoft.AspNetCore.Html.HtmlString("ordenacao"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -111,7 +118,7 @@ using BazarPapelaria10.Models.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("    <div class=\"row\" style=\"margin-top:10px;\">\r\n        <div class=\"offset-md-10 col-md-2\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6db3efad0e713dc681e54d9563457c67658389337217", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6db3efad0e713dc681e54d9563457c67658389337407", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();
@@ -162,7 +169,7 @@ WriteAttributeValue("", 672, produto.Id, 672, 11, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                    <div class=\"card h-100\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6db3efad0e713dc681e54d9563457c676583893310203", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6db3efad0e713dc681e54d9563457c676583893310393", async() => {
                 WriteLiteral("\r\n");
 #nullable restore
 #line 23 "C:\inetpub\wwwroot\BazarPapelaria10\Views\Shared\Components\ProdutoListagem\Default.cshtml"
@@ -195,7 +202,7 @@ WriteAttributeValue("", 1042, Url.Content(produto.Imagens.FirstOrDefault().Camin
 #line hidden
 #nullable disable
                 WriteLiteral("                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6db3efad0e713dc681e54d9563457c676583893311749", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6db3efad0e713dc681e54d9563457c676583893311939", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

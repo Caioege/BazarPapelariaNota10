@@ -34,21 +34,28 @@ using BazarPapelaria10.Models.ProdutoAgregador;
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
-using X.PagedList.Mvc.Core;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
-using X.PagedList;
+#line 4 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models.PedidoAgregador;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 7 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using X.PagedList.Mvc.Core;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using X.PagedList;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
 using BazarPapelaria10.Models.ViewModels;
 
 #line default
@@ -62,7 +69,7 @@ using Microsoft.AspNetCore.Http.Features;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5c18f8c7ec540a446e15b225511cfa1a006e3ec3", @"/Views/Shared/_CookieConsentPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c030953df67c643875230b79b7642293c8c6fefe", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d7a6f528ed2d8d4d17171bda305e0fc075ae576c", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__CookieConsentPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -129,7 +136,7 @@ using Microsoft.AspNetCore.Http.Features;
                 </p>
                 <div class=""navbar-right"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5c18f8c7ec540a446e15b225511cfa1a006e3ec36592", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5c18f8c7ec540a446e15b225511cfa1a006e3ec36782", async() => {
                 WriteLiteral("Learn More");
             }
             );

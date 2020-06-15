@@ -94,8 +94,6 @@ namespace BazarPapelaria10.Controllers
         [ClienteAutorizacao]
         public IActionResult AtualizarEnderecoEntrega(int id)
         {
-
-
             return RedirectToAction("Index", "Pagamento", new { area = "" });
         }
 

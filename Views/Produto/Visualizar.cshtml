@@ -1,10 +1,11 @@
 ﻿@model BazarPapelaria10.Models.ProdutoAgregador.Produto
+@{
+    ViewData["Title"] = "Nota 10 -" + Model.ToLower(Model.Nomeprod);
+}
 
 <head>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
     <script src='~/js/jquery.zoom.js'></script>
-
-    <title>Nota 10 - @Model.ToLower(Model.Nomeprod)</title>
 
     <style>
         /* these styles are for the demo, but are not required for the plugin */
@@ -160,4 +161,6 @@
             }
         </div>
     </div>
+    <br />
+    <br />
 </body>

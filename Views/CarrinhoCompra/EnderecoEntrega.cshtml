@@ -1,14 +1,14 @@
-﻿@{ 
+﻿@{
     ViewData["Title"] = "Nota 10 - Endereço de Entrega";
 }
 
-    <head>
-        <script type="text/javascript">
-            function Redirect(id) {
-                location.href = "/Pagamento?id=" + id;
-            }
-        </script>
-    </head>
+<head>
+    <script type="text/javascript">
+        function Redirect(id) {
+            location.href = "/Pagamento?id=" + id;
+        }
+    </script>
+</head>
 
 <div class="container">
     <br />
@@ -24,38 +24,23 @@
 
             <table class="table table-hover">
                 <tbody>
-                    <a href="/Pagamento?id=0">
-                        <tr>
+
+                    @foreach (var endereco in ViewBag.Enderecos)
+                    {
+                        <tr onclick="Redirect(@endereco.Id)">
                             <th scope="row">
-                                <input type="radio" name="endereco" value="0" id="0-end" />
+                                <input type="radio" name="endereco" value="@endereco.Id" />
                             </th>
                             <td>
-                                <label for="0-end">
-                                    <strong>Nome: </strong>Endereço do Cliente.
+                                <label for="@endereco.Id-end">
+                                    <strong>Nome: </strong>@endereco.Nome
                                     <p>
-                                        @ViewBag.Cliente.CEP | @ViewBag.Cliente.Cidade, @ViewBag.Cliente.Bairro, @ViewBag.Cliente.Logradouro, @ViewBag.Cliente.Complemento, @ViewBag.Cliente.Numero
+                                        <strong>@endereco.CEP</strong> | @endereco.Cidade, @endereco.Bairro, @endereco.Logradouro, @endereco.Complemento, @endereco.Numero
                                     </p>
                                 </label>
                             </td>
                         </tr>
-                    </a>
-
-                        @foreach (var endereco in ViewBag.Enderecos)
-                        {
-                                <tr onclick="Redirect(@endereco.Id)">
-                                    <th scope="row">
-                                        <input type="radio" name="endereco" value="@endereco.Id" id="@endereco.Id-end" />
-                                    </th>
-                                    <td>
-                                        <label href="/Pagamento?id=@endereco.Id" for="@endereco.Id-end">
-                                            <strong>Nome: </strong>@endereco.Nome
-                                            <p>
-                                                <strong>@endereco.CEP</strong> | @endereco.Cidade, @endereco.Bairro, @endereco.Logradouro, @endereco.Complemento, @endereco.Numero
-                                            </p>
-                                        </label>
-                                    </td>
-                                </tr>
-                        }
+                    }
                 </tbody>
             </table>
 
@@ -67,13 +52,13 @@
             </div>
             <br />
             <br />
-            <div class="text-center">
-                <a asp-action="Index" asp-controller="Pagamento" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
-            </div>
+            @*<div class="text-center">
+                    <a asp-action="Index" asp-controller="Pagamento" class="btn btn-success btn-continuar"><i class="fas fa-truck-loading"></i> Continuar</a>
+                </div>*@
             <br />
             <br />
         </div>
         <br />
-        <br /> 
+        <br />
     </div>
 </div>

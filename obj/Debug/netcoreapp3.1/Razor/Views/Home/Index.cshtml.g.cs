@@ -34,28 +34,35 @@ using BazarPapelaria10.Models.ProdutoAgregador;
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
-using X.PagedList.Mvc.Core;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
-using X.PagedList;
+#line 4 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using BazarPapelaria10.Models.PedidoAgregador;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 7 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using X.PagedList.Mvc.Core;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
+using X.PagedList;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\inetpub\wwwroot\BazarPapelaria10\Views\_ViewImports.cshtml"
 using BazarPapelaria10.Models.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d21b1572b2b94092139a2d35622ebf4b2b48b8b1", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c030953df67c643875230b79b7642293c8c6fefe", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d7a6f528ed2d8d4d17171bda305e0fc075ae576c", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private global::AspNetCore.Views_Home_Index.__Generated__ProdutoListagemViewComponentTagHelper __ProdutoListagemViewComponentTagHelper;
@@ -115,7 +122,7 @@ using BazarPapelaria10.Models.ViewModels;
                 <div class=""carousel-inner"">
                     <div class=""carousel-item active"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d21b1572b2b94092139a2d35622ebf4b2b48b8b16798", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d21b1572b2b94092139a2d35622ebf4b2b48b8b16988", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -139,7 +146,7 @@ using BazarPapelaria10.Models.ViewModels;
                     </div>
                     <div class=""carousel-item"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d21b1572b2b94092139a2d35622ebf4b2b48b8b18364", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d21b1572b2b94092139a2d35622ebf4b2b48b8b18554", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -180,7 +187,7 @@ using BazarPapelaria10.Models.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("vc:produto-listagem", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d21b1572b2b94092139a2d35622ebf4b2b48b8b110686", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("vc:produto-listagem", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d21b1572b2b94092139a2d35622ebf4b2b48b8b110876", async() => {
             }
             );
             __ProdutoListagemViewComponentTagHelper = CreateTagHelper<global::AspNetCore.Views_Home_Index.__Generated__ProdutoListagemViewComponentTagHelper>();

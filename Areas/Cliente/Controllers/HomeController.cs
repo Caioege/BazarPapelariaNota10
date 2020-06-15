@@ -126,5 +126,12 @@ namespace BazarPapelaria10.Areas.Cliente.Controllers
 
             return View();
         }
+
+        public IActionResult Sair()
+        {
+            _loginCliente.Logout();
+
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
     }
 }

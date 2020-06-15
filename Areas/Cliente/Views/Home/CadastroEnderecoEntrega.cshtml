@@ -179,15 +179,14 @@
                     <input asp-for="Bairro" name="bairro" class="form-control" type="text" size="40" />
                     <span asp-validation-for="Bairro" class="validation-error"></span><br />
                 </div>
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <label>Cidade: <h11 style="color:red;">*</h11></label>
-                        <select class="custom-select-sm" asp-for="Cidade">
-                            <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
-                            <option value="Goiânia">Goiânia</option>
-                        </select>
-                        <span asp-validation-for="Cidade" class="validation-error"></span><br />
-                    </div>
+
+                <div class="col-md-6">
+                    <label>Cidade: <h11 style="color:red;">*</h11></label>
+                    <select asp-for="Cidade" class="custom-select" id="inputGroupSelect02">
+                        <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
+                        <option value="Goiânia">Goiânia</option>
+                    </select>
+                    <span asp-validation-for="Cidade" class="validation-error"></span><br />
                 </div>
             </div>
             <div class="form-row">

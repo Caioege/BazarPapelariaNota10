@@ -64,11 +64,6 @@ namespace BazarPapelaria10
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //AUTOMAPPER
-            var config = new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfile()); });
-            IMapper mapper = config.CreateMapper();
-            services.AddSingleton(mapper);
-
             //INTERFACES - PADRÃO REPOSITORY
             services.AddScoped<IPessoaRepository, PessoaRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
@@ -76,10 +71,17 @@ namespace BazarPapelaria10
             services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IEnderecoEntregaRepository, EnderecoEntregaRepository>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddScoped<IPedidoItemRepository, PedidoItemRepository>();
 
             services.AddScoped<BazarPapelaria10.Bibliotecas.Cookie.Cookie>();
 
             services.AddScoped<CarrinhoCompra>();
+
+            //AUTOMAPPER
+            var config = new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfile()); });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
 
